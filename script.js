@@ -1,6 +1,10 @@
-// Mobile Menu Toggle
+// Mobile Menu Toggle with Close Button
 document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('active');
+    document.querySelector('nav ul').classList.add('active');
+});
+
+document.querySelector('.mobile-menu-close').addEventListener('click', function() {
+    document.querySelector('nav ul').classList.remove('active');
 });
 
 // Close mobile menu when clicking on a link
@@ -8,6 +12,20 @@ document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         document.querySelector('nav ul').classList.remove('active');
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav ul');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    
+    if (nav.classList.contains('active') && 
+        !nav.contains(event.target) && 
+        !menuBtn.contains(event.target) &&
+        !closeBtn.contains(event.target)) {
+        nav.classList.remove('active');
+    }
 });
 
 // Hero Slider
@@ -30,9 +48,21 @@ dots.forEach((dot, index) => {
 });
 
 // Auto slide change
-setInterval(() => {
+let slideInterval = setInterval(() => {
     showSlide(currentSlide + 1);
 }, 5000);
+
+// Pause slider on hover
+const slider = document.querySelector('.hero-slider');
+slider.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
+
+slider.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+});
 
 // Testimonial Slider
 let currentTestimonial = 0;
@@ -186,5 +216,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth'
             });
         }
+    });
+});
+
+// Enhanced image loading with fallback
+document.addEventListener('DOMContentLoaded', function() {
+    const specialistImages = document.querySelectorAll('.specialist-image-circle img');
+    
+    specialistImages.forEach(img => {
+        // Check if image loaded successfully
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            const container = this.parentElement;
+            const fallbackIcon = document.createElement('div');
+            fallbackIcon.className = 'doctor-icon';
+            fallbackIcon.innerHTML = '<i class="fas fa-user-md"></i>';
+            fallbackIcon.style.display = 'flex';
+            fallbackIcon.style.alignItems = 'center';
+            fallbackIcon.style.justifyContent = 'center';
+            fallbackIcon.style.width = '100%';
+            fallbackIcon.style.height = '100%';
+            fallbackIcon.style.fontSize = '3rem';
+            fallbackIcon.style.color = 'var(--primary)';
+            container.appendChild(fallbackIcon);
+        });
+        
+        // Preload and fade in images
+        img.addEventListener('load', function() {
+            this.style.opacity = '0';
+            this.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                this.style.opacity = '1';
+            }, 100);
+        });
     });
 });

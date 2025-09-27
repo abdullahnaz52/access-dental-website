@@ -202,7 +202,6 @@ nav ul li a:hover::after {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    background: #25D366;
     color: white;
     padding: 12px 15px;
     border-radius: 50px;
@@ -1148,4 +1147,5 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 

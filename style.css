@@ -195,60 +195,92 @@ nav ul li a:hover::after {
     color: var(--text-dark);
     z-index: 1002;
 }
-/* Floating WhatsApp Button for Mobile */
+/* Floating WhatsApp Button for Mobile - FIXED */
 .floating-whatsapp {
     display: none;
     position: fixed;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
-    padding: 12px 15px;
-    border-radius: 50px;
+    background: transparent;
+    color: #25D366;
+    padding: 0;
+    border-radius: 0;
     text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     z-index: 998;
     transition: var(--transition);
     align-items: center;
-    gap: 8px;
-    writing-mode: horizontal-tb;
-    transform-origin: left center;
+    gap: 0;
 }
 
-.floating-whatsapp:hover {
-    background: #128C7E;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+.floating-whatsapp i {
+    background: rgba(37, 211, 102, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid #25D366;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
 }
 
-/* Update the media query for mobile */
+.floating-whatsapp:hover i {
+    background: rgba(37, 211, 102, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.floating-whatsapp span {
+    display: none;
+}
+
+/* Update mobile styles */
 @media (max-width: 768px) {
     .floating-whatsapp {
         display: flex;
-        flex-direction: row;
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
     
     .floating-whatsapp span {
-        display: inline;
-        font-size: 0.9rem;
+        display: block;
+        font-size: 0.7rem;
+        color: var(--text-dark);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 4px 8px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    .floating-whatsapp:hover span {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
 @media (max-width: 576px) {
     .floating-whatsapp {
-        padding: 10px 12px;
         left: 10px;
     }
     
-    .floating-whatsapp span {
-        font-size: 0.8rem;
+    .floating-whatsapp i {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
     
-    .floating-whatsapp i {
-        font-size: 1.2rem;
+    .floating-whatsapp span {
+        font-size: 0.65rem;
+        padding: 3px 6px;
     }
 }
 /* Hero Slider */
@@ -1147,5 +1179,6 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 
 

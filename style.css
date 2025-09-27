@@ -776,29 +776,188 @@ footer {
     padding-left: 5px;
 }
 
+/* Social Links Styling */
 .social-links {
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.social-links a {
+.social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--white);
-    transition: var(--transition);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
-.social-links a:hover {
-    background: var(--primary);
+.social-icon i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+/* Instagram Specific */
+.social-icon[href*="instagram"] {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon[href*="instagram"]:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+}
+
+/* YouTube Specific */
+.social-icon[href*="youtube"] {
+    background: #FF0000;
+}
+
+.social-icon[href*="youtube"]:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* WhatsApp Specific */
+.social-icon[href*="whatsapp"] {
+    background: #25D366;
+}
+
+.social-icon[href*="whatsapp"]:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+/* LinkedIn Specific */
+.social-icon[href*="linkedin"] {
+    background: #0077B5;
+}
+
+.social-icon[href*="linkedin"]:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+/* Hover Effects for All Icons */
+.social-icon:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.social-icon:hover i {
+    transform: scale(1.2);
+}
+
+/* Social Icons in Footer */
+footer .social-links {
+    justify-content: flex-start;
+}
+
+footer .social-icon {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+footer .social-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
 }
 
+/* Responsive Social Icons */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 12px;
+        justify-content: center;
+    }
+    
+    .social-icon {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .social-icon i {
+        font-size: 1.2rem;
+    }
+    
+    footer .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .social-icon i {
+        font-size: 1.1rem;
+    }
+}
+/* Social Media Section */
+.social-media-section {
+    background: var(--light-bg);
+    padding: 60px 0;
+}
+
+.social-links-center {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.social-links-center .social-icon {
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    background: var(--white);
+    color: var(--text-dark);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.social-links-center .social-icon i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.social-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links-center .social-icon:hover .social-text {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .social-links-center {
+        gap: 15px;
+    }
+    
+    .social-links-center .social-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .social-links-center .social-icon i {
+        font-size: 1.7rem;
+    }
+}
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
@@ -1179,6 +1338,7 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 
 
 

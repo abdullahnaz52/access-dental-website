@@ -377,53 +377,177 @@
             gap: 30px;
         }
 
-        .specialist-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
+        /* Neomorphic Specialist Cards */
+.specialist-card {
+    background: var(--light-bg);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.1),
+        -8px -8px 16px rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+}
 
-        .specialist-card:hover {
-            transform: translateY(-10px);
-        }
+.specialist-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        15px 15px 30px rgba(0, 0, 0, 0.15),
+        -15px -15px 30px rgba(255, 255, 255, 0.9);
+}
 
-        .specialist-image {
-            height: 300px;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: #9e9e9e;
-        }
+.specialist-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0) 50%);
+    border-radius: 20px;
+    z-index: 1;
+    pointer-events: none;
+}
 
-        .specialist-info {
-            padding: 25px;
-        }
+.specialist-image {
+    height: 320px;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 
+        inset 3px 3px 6px rgba(0, 0, 0, 0.1),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
 
-        .specialist-info h3 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
+.specialist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: grayscale(0.1) contrast(1.1);
+}
 
-        .specialist-title {
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
+.specialist-card:hover .specialist-image img {
+    transform: scale(1.08);
+    filter: grayscale(0) contrast(1.2);
+}
 
-        /* Testimonials */
-        .testimonials-section {
-            background: var(--light-bg);
-        }
+/* Fallback icon styling */
+.specialist-image .doctor-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.7;
+    z-index: 2;
+}
 
-        .testimonials-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
+.specialist-info {
+    padding: 30px;
+    background: var(--light-bg);
+    position: relative;
+    z-index: 2;
+}
+
+.specialist-info h3 {
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.specialist-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.specialist-card:hover .specialist-info h3::after {
+    width: 60px;
+}
+
+.specialist-title {
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.specialist-info p {
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Animation for card entrance */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.specialist-card {
+    animation: cardEntrance 0.6s ease-out;
+}
+
+.specialist-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .specialist-image {
+        height: 280px;
+    }
+    
+    .specialist-info {
+        padding: 25px 20px;
+    }
+}
+
+/* Add subtle pulse animation on hover */
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.specialist-card:hover {
+    animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Glass morphism effect for specialty tag */
+.specialist-title {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
         .testimonial-slide {
             background: var(--white);
@@ -1044,45 +1168,53 @@
     </section>
 
     <!-- Specialists Section -->
-    <section id="specialists">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Specialists</h2>
-            </div>
-            <div class="specialists-grid">
-                <div class="specialist-card">
-                    <div class="specialist-image"><img src="sameer-photo.png" alt="Dr. Sameer Malik - Orthodontist">
-                    </div>
-                    <div class="specialist-info">
-                        <h3>Dr. Sameer Malik</h3>
-                        <p class="specialist-title">Orthodontist</p>
-                        <p>Regn. no. A-2294 (2014)</p>
-                        <p>BDS, HJ Endodontics (GDC Srinagar)</p>
-                        <p>MDS Orthodontics (RGUHS)</p>
-                        <p>MFDS RCS Edinburgh</p>
-                        <p>Fellowship in Cleft and Craniofacial Orthodontics, Sick Kids Hospital, Toronto</p>
-                        <p>Member Indian Society of Oral Implantology</p>
-                    </div>
-                </div>
-                <div class="specialist-card">
-                    <div class="specialist-image">
+    <!-- Specialists Section -->
+<section id="specialists">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Specialists</h2>
+        </div>
+        <div class="specialists-grid">
+            <div class="specialist-card">
+                <div class="specialist-image">
+                    <!-- Replace with Dr. Sameer Malik's image -->
+                    <img src="images/sameer-photo.png" alt="Dr. Sameer Malik - Orthodontist" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="doctor-icon" style="display: none;">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <div class="specialist-info">
-                        <h3>Dr. Nida Lanker</h3>
-                        <p class="specialist-title">General Dentist</p>
-                        <p>Regn. no. A-3341 (2017)</p>
-                        <p>BDS (GDC Srinagar)</p>
-                        <p>House Job in Oral Surgery (GDC Srinagar)</p>
-                        <p>University Gold Medalist in BDS</p>
-                    </div>
+                </div>
+                <div class="specialist-info">
+                    <h3>Dr. Sameer Malik</h3>
+                    <p class="specialist-title">Orthodontist</p>
+                    <p>Regn. no. A-2294 (2014)</p>
+                    <p>BDS, HJ Endodontics (GDC Srinagar)</p>
+                    <p>MDS Orthodontics (RGUHS)</p>
+                    <p>MFDS RCS Edinburgh</p>
+                    <p>Fellowship in Cleft and Craniofacial Orthodontics, Sick Kids Hospital, Toronto</p>
+                    <p>Member Indian Society of Oral Implantology</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <p><strong>Consultation: Monday to Saturday</strong></p>
+            
+            <div class="specialist-card">
+                <div class="specialist-image">
+                    <!-- Replace with Dr. Nida Lanker's image -->
+                    <img src="images/nida-photo.png" alt="Dr. Nida Lanker - General Dentist" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="doctor-icon" style="display: none;">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+                <div class="specialist-info">
+                    <h3>Dr. Nida Lanker</h3>
+                    <p class="specialist-title">General Dentist</p>
+                    <p>Regn. no. A-3341 (2017)</p>
+                    <p>BDS (GDC Srinagar)</p>
+                    <p>House Job in Oral Surgery (GDC Srinagar)</p>
+                    <p>University Gold Medalist in BDS</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials-section">
@@ -1442,5 +1574,6 @@
 </body>
 
 </html>
+
 
 

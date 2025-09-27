@@ -116,11 +116,20 @@ header {
     text-decoration: none;
     display: flex;
     align-items: center;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .logo i {
     margin-right: 10px;
     font-size: 2rem;
+}
+
+.logo-text {
+    font-size: 1.8rem;
 }
 
 nav ul {
@@ -173,6 +182,44 @@ nav ul li a:hover::after {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile-menu-close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    z-index: 1002;
+}
+
+/* Floating WhatsApp Button for Mobile */
+.floating-whatsapp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    z-index: 999;
+    transition: var(--transition);
+    align-items: center;
+    gap: 10px;
+}
+
+.floating-whatsapp:hover {
+    background: #128C7E;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 /* Hero Slider */
@@ -202,6 +249,18 @@ nav ul li a:hover::after {
 
 .slide.active {
     opacity: 1;
+}
+
+.slide:nth-child(1) {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-one.jpg');
+}
+
+.slide:nth-child(2) {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-two.jpg');
+}
+
+.slide:nth-child(3) {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-three.jpg');
 }
 
 .slide-content {
@@ -357,54 +416,130 @@ nav ul li a:hover::after {
     margin-bottom: 15px;
 }
 
-/* Specialists Section */
+/* Specialists Section - Updated with Circular Images */
 .specialists-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
 }
 
 .specialist-card {
-    background: var(--white);
-    border-radius: 10px;
+    background: var(--light-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.1),
+        -8px -8px 16px rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    position: relative;
+    text-align: center;
 }
 
 .specialist-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        15px 15px 30px rgba(0, 0, 0, 0.15),
+        -15px -15px 30px rgba(255, 255, 255, 0.9);
 }
 
-.specialist-image {
-    height: 300px;
+.specialist-image-circle {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
     overflow: hidden;
-}
-
-.specialist-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border: 5px solid var(--white);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        inset 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
     transition: var(--transition);
 }
 
-.specialist-card:hover .specialist-image img {
+.specialist-card:hover .specialist-image-circle {
     transform: scale(1.05);
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.2),
+        inset 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
-.specialist-info {
-    padding: 25px;
+.specialist-image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+}
+
+.specialist-card:hover .specialist-image-circle img {
+    transform: scale(1.1);
 }
 
 .specialist-info h3 {
     color: var(--primary);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.specialist-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.specialist-card:hover .specialist-info h3::after {
+    width: 60px;
 }
 
 .specialist-title {
     color: var(--text-light);
     font-style: italic;
     margin-bottom: 15px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.specialist-info p {
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Animation for card entrance */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.specialist-card {
+    animation: cardEntrance 0.6s ease-out;
+}
+
+.specialist-card:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
 /* Testimonials */
@@ -825,6 +960,11 @@ footer {
     .slide-content h1 {
         font-size: 2.5rem;
     }
+    
+    .specialists-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -832,26 +972,46 @@ footer {
         display: block;
     }
     
+    .desktop-whatsapp {
+        display: none;
+    }
+    
+    .floating-whatsapp {
+        display: flex;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .logo i {
+        font-size: 1.7rem;
+    }
+    
     nav ul {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: 100vh;
         background: var(--white);
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        padding-top: 50px;
+        justify-content: center;
         transition: var(--transition);
+        z-index: 1000;
     }
     
     nav ul.active {
         left: 0;
     }
     
+    .mobile-menu-close {
+        display: block;
+    }
+    
     nav ul li {
-        margin: 15px 0;
+        margin: 20px 0;
     }
     
     .slide-content h1 {
@@ -865,6 +1025,11 @@ footer {
     .chatbot-window {
         width: 300px;
         height: 450px;
+    }
+    
+    .specialist-image-circle {
+        width: 180px;
+        height: 180px;
     }
 }
 
@@ -884,5 +1049,33 @@ footer {
     .chatbot-window {
         width: 280px;
         right: -20px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+    
+    .specialist-image-circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .specialist-card {
+        padding: 25px 20px;
+    }
+    
+    .floating-whatsapp span {
+        display: none;
+    }
+    
+    .floating-whatsapp {
+        padding: 15px;
+        border-radius: 50%;
+        bottom: 80px;
     }
 }

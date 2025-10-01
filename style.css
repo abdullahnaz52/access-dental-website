@@ -330,15 +330,15 @@ nav ul li a:hover::after {
 
 /* Hero Slider Background Images */
 .slide:nth-child(1) {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/slide-one.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-one.jpg');
 }
 
 .slide:nth-child(2) {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/slide-two.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-two.jpg');
 }
 
 .slide:nth-child(3) {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/slide-three.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('slide-three.jpg');
 }
 
 .slide-content {
@@ -1334,3 +1334,4 @@ footer {
         height: 26px;
     }
 }
+

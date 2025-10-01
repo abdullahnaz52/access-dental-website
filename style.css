@@ -109,40 +109,135 @@ header {
     padding: 15px 20px;
 }
 
-/* Logo Styles with Image */
+/* Enhanced Logo Styles with Gradient Text */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
+    gap: 12px;
+    opacity: 0;
+    animation: logoEntrance 1s ease-out 0.5s forwards;
 }
 
 .logo-image {
-    height: 50px; /* Adjust based on your logo aspect ratio */
+    height: 45px;
     width: auto;
     transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.logo:hover .logo-image {
-    transform: scale(1.05);
-}
-
-/* Remove old logo styles */
-.logo i,
 .logo-text {
-    display: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #0d62d9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.2;
+    transition: var(--transition);
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+    position: relative;
 }
 
-/* Responsive Logo Sizes */
-@media (max-width: 768px) {
+.logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary) 0%, #0d62d9 100%);
+    transition: width 0.3s ease;
+}
+
+.logo:hover .logo-text::after {
+    width: 100%;
+}
+
+/* Logo Hover Effects */
+.logo:hover .logo-image {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.logo:hover .logo-text {
+    text-shadow: 
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(255, 255, 255, 0.5);
+    transform: translateX(2px);
+}
+
+/* Logo Entrance Animation */
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+    60% {
+        transform: translateY(5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments remain the same */
+@media (max-width: 992px) {
+    .logo-text {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+    
     .logo-image {
-        height: 40px; /* Smaller on mobile */
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        gap: 8px;
+    }
+    
+    .logo-text {
+        font-size: 0.85rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .logo-image {
+        height: 35px;
     }
 }
 
 @media (max-width: 576px) {
+    .logo-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.2px;
+    }
+    
     .logo-image {
-        height: 35px; /* Even smaller on very small screens */
+        height: 30px;
+    }
+    
+    .logo {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-image {
+        height: 35px;
     }
 }
 
@@ -1352,6 +1447,7 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 
 
 

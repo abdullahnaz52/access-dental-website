@@ -109,29 +109,47 @@ header {
     padding: 15px 20px;
 }
 
+/* Alternative Logo Styles for different aspect ratios */
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    transition: var(--transition);
+    height: 50px; /* Fixed container height */
+}
+
+.logo-image {
+    height: 100%;
+    width: auto;
+    max-width: 200px; /* Maximum width to prevent overflow */
+    object-fit: contain;
     transition: var(--transition);
 }
 
-.logo:hover {
+.logo:hover .logo-image {
     transform: scale(1.05);
 }
 
-.logo i {
-    margin-right: 10px;
-    font-size: 2rem;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo {
+        height: 40px;
+    }
+    
+    .logo-image {
+        max-width: 160px;
+    }
 }
 
-.logo-text {
-    font-size: 1.8rem;
+@media (max-width: 576px) {
+    .logo {
+        height: 35px;
+    }
+    
+    .logo-image {
+        max-width: 140px;
+    }
 }
-
 nav ul {
     display: flex;
     list-style: none;
@@ -1338,6 +1356,7 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 
 
 

@@ -109,20 +109,17 @@ header {
     padding: 15px 20px;
 }
 
-/* Alternative Logo Styles for different aspect ratios */
+/* Logo Styles with Image */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
-    height: 50px; /* Fixed container height */
 }
 
 .logo-image {
-    height: 100%;
+    height: 50px; /* Adjust based on your logo aspect ratio */
     width: auto;
-    max-width: 200px; /* Maximum width to prevent overflow */
-    object-fit: contain;
     transition: var(--transition);
 }
 
@@ -130,26 +127,25 @@ header {
     transform: scale(1.05);
 }
 
-/* Responsive adjustments */
+/* Remove old logo styles */
+.logo i,
+.logo-text {
+    display: none;
+}
+
+/* Responsive Logo Sizes */
 @media (max-width: 768px) {
-    .logo {
-        height: 40px;
-    }
-    
     .logo-image {
-        max-width: 160px;
+        height: 40px; /* Smaller on mobile */
     }
 }
 
 @media (max-width: 576px) {
-    .logo {
-        height: 35px;
-    }
-    
     .logo-image {
-        max-width: 140px;
+        height: 35px; /* Even smaller on very small screens */
     }
 }
+
 nav ul {
     display: flex;
     list-style: none;
@@ -1356,6 +1352,7 @@ nav ul.active + .mobile-menu-close {
         bottom: 80px;
     }
 }
+
 
 
 

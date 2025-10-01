@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Mobile WhatsApp button is active');
     }
 });
-// Enhanced Chatbot for Mobile - Centered Position
+// Enhanced Chatbot for Mobile Visibility
 function initChatbotMobile() {
     const chatbotWindow = document.querySelector('.chatbot-window');
     const chatbotInput = document.querySelector('.chatbot-input input');
@@ -341,16 +341,22 @@ function initChatbotMobile() {
     
     if (!chatbotWindow) return;
     
-    // Auto-focus input when chatbot opens on desktop
-    chatbotToggle.addEventListener('click', () => {
-        if (window.innerWidth > 768) {
+    // Ensure chat window fits on screen when opened
+    chatbotToggle.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            // Force recalc to ensure proper sizing
             setTimeout(() => {
-                chatbotInput.focus();
-            }, 300);
+                const windowHeight = window.innerHeight;
+                const maxHeight = windowHeight - 150; // Account for header and safe areas
+                chatbotWindow.style.maxHeight = maxHeight + 'px';
+                
+                // Scroll to bottom
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 50);
         }
     });
     
-    // Ensure messages scroll to bottom when new message is added
+    // Auto-scroll to bottom when new messages are added
     const observer = new MutationObserver(() => {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     });
@@ -360,37 +366,12 @@ function initChatbotMobile() {
         subtree: true
     });
     
-    // Handle mobile keyboard appearance
-    if (window.innerWidth <= 768) {
-        chatbotInput.addEventListener('focus', () => {
-            // Add a small delay to ensure keyboard is fully up
-            setTimeout(() => {
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-                
-                // Adjust chatbot window position when keyboard is open
-                if (window.innerHeight < 500) {
-                    chatbotWindow.style.bottom = '200px';
-                }
-            }, 300);
-        });
-        
-        chatbotInput.addEventListener('blur', () => {
-            // Reset position when keyboard closes
-            setTimeout(() => {
-                chatbotWindow.style.bottom = '80px';
-            }, 300);
-        });
-    }
-    
-    // Close chatbot when clicking outside on mobile
-    document.addEventListener('click', function(event) {
+    // Handle window resize
+    window.addEventListener('resize', function() {
         if (window.innerWidth <= 768 && chatbotWindow.classList.contains('active')) {
-            const isClickInsideChatbot = chatbotWindow.contains(event.target);
-            const isClickOnToggle = chatbotToggle.contains(event.target);
-            
-            if (!isClickInsideChatbot && !isClickOnToggle) {
-                chatbotWindow.classList.remove('active');
-            }
+            const windowHeight = window.innerHeight;
+            const maxHeight = windowHeight - 150;
+            chatbotWindow.style.maxHeight = maxHeight + 'px';
         }
     });
 }
@@ -398,32 +379,4 @@ function initChatbotMobile() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initChatbotMobile();
-    
-    // Adjust chatbot position on window resize
-    window.addEventListener('resize', function() {
-        const chatbotContainer = document.querySelector('.chatbot-container');
-        const chatbotWindow = document.querySelector('.chatbot-window');
-        
-        if (window.innerWidth <= 768) {
-            // Ensure centered position on mobile
-            chatbotContainer.style.left = '50%';
-            chatbotContainer.style.right = 'auto';
-            chatbotContainer.style.transform = 'translateX(-50%)';
-            
-            if (chatbotWindow.classList.contains('active')) {
-                chatbotWindow.style.left = '50%';
-                chatbotWindow.style.right = 'auto';
-                chatbotWindow.style.transform = 'translateX(-50%)';
-            }
-        } else {
-            // Reset to default position on desktop
-            chatbotContainer.style.left = 'auto';
-            chatbotContainer.style.right = '30px';
-            chatbotContainer.style.transform = 'none';
-            
-            chatbotWindow.style.left = 'auto';
-            chatbotWindow.style.right = '0';
-            chatbotWindow.style.transform = 'none';
-        }
-    });
 });

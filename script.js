@@ -1,4 +1,4 @@
-// Mobile Menu Toggle with Close Button - FIXED VERSION
+// Mobile Menu Functionality
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenuClose = document.querySelector('.mobile-menu-close');
 const navUl = document.querySelector('nav ul');
@@ -7,14 +7,14 @@ const navUl = document.querySelector('nav ul');
 mobileMenuBtn.addEventListener('click', function() {
     navUl.classList.add('active');
     mobileMenuClose.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
 });
 
 // Hide menu and close button
 mobileMenuClose.addEventListener('click', function() {
     navUl.classList.remove('active');
     this.style.display = 'none';
-    document.body.style.overflow = ''; // Restore scrolling
+    document.body.style.overflow = '';
 });
 
 // Close mobile menu when clicking on a link
@@ -22,7 +22,7 @@ document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         navUl.classList.remove('active');
         mobileMenuClose.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
     });
 });
 
@@ -38,7 +38,16 @@ document.addEventListener('click', function(event) {
         !isClickOnCloseBtn) {
         navUl.classList.remove('active');
         mobileMenuClose.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
+    }
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && navUl.classList.contains('active')) {
+        navUl.classList.remove('active');
+        mobileMenuClose.style.display = 'none';
+        document.body.style.overflow = '';
     }
 });
 
@@ -47,7 +56,7 @@ window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
         navUl.classList.remove('active');
         mobileMenuClose.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
     }
 });
 
@@ -275,3 +284,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = 'var(--shadow)';
+    }
+});
+
+// Initialize the website
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Access Dental Care website loaded successfully!');
+    
+    // Add loading animation to logo
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.style.animation = 'logoEntrance 1s ease-out 0.5s forwards';
+    }
+});

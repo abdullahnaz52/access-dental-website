@@ -1013,7 +1013,7 @@ footer {
 }
 
 /* ===== CHATBOT - MOBILE FIXED ===== */
-/* ===== CHATBOT - MOBILE CENTERED ===== */
+/* ===== CHATBOT - MOBILE FIXED ===== */
 .chatbot-container {
     position: fixed;
     bottom: 30px;
@@ -1089,7 +1089,7 @@ footer {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    min-height: 0; /* Important for flexbox scrolling */
 }
 
 .message {
@@ -1157,31 +1157,26 @@ footer {
     font-size: 1.1rem;
 }
 
-/* ===== MOBILE CHATBOT - CENTERED POSITION ===== */
+/* ===== MOBILE CHATBOT FIXES ===== */
 @media (max-width: 768px) {
     .chatbot-container {
-        bottom: 20px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
+        bottom: 80px; /* Move up to avoid WhatsApp button */
+        right: 15px;
     }
     
     .chatbot-toggle {
-        width: 60px;
-        height: 60px;
-        font-size: 1.4rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
     }
     
     .chatbot-window {
-        width: 95vw;
-        max-width: 350px;
-        height: 70vh;
-        max-height: 500px;
-        bottom: 80px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
+        width: 320px;
+        height: 450px;
+        bottom: 70px;
+        right: 0;
+        left: auto;
+        transform: none;
     }
     
     .chatbot-header {
@@ -1226,20 +1221,29 @@ footer {
 
 @media (max-width: 576px) {
     .chatbot-container {
-        bottom: 15px;
+        bottom: 70px;
+        right: 10px;
     }
     
     .chatbot-toggle {
-        width: 55px;
-        height: 55px;
-        font-size: 1.3rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
     
     .chatbot-window {
-        width: 92vw;
-        height: 65vh;
-        max-height: 450px;
-        bottom: 75px;
+        width: 300px;
+        height: 420px;
+        bottom: 65px;
+        right: -10px;
+    }
+    
+    /* Ensure chatbot doesn't go off-screen on small devices */
+    @media (max-width: 320px) {
+        .chatbot-window {
+            width: 280px;
+            right: -15px;
+        }
     }
     
     .chatbot-header {
@@ -1284,21 +1288,9 @@ footer {
 
 /* Extra small devices */
 @media (max-width: 400px) {
-    .chatbot-container {
-        bottom: 10px;
-    }
-    
-    .chatbot-toggle {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
     .chatbot-window {
-        width: 90vw;
-        height: 60vh;
-        max-height: 400px;
-        bottom: 70px;
+        width: 280px;
+        height: 400px;
     }
     
     .chatbot-messages {
@@ -1311,7 +1303,7 @@ footer {
     }
 }
 
-/* Ensure proper z-index hierarchy */
+/* Ensure chatbot is above WhatsApp button */
 .floating-whatsapp-mobile {
     z-index: 998;
 }
@@ -1346,25 +1338,6 @@ footer {
 .chatbot-messages::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
 }
-
-/* Mobile-specific animations */
-@keyframes slideUpMobile {
-    from {
-        opacity: 0;
-        transform: translate(-50%, 20px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-
-@media (max-width: 768px) {
-    .chatbot-window.active {
-        animation: slideUpMobile 0.3s ease;
-    }
-}
-
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
     from {

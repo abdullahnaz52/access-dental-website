@@ -1015,8 +1015,8 @@ footer {
 /* ===== CHATBOT - MOBILE FIXED ===== */
 .chatbot-container {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     z-index: 1000;
 }
 
@@ -1042,7 +1042,7 @@ footer {
 .chatbot-window {
     position: absolute;
     bottom: 80px;
-    right: 0;
+    right: 100px;
     width: 350px;
     height: 500px;
     background: var(--white);
@@ -1641,5 +1641,6 @@ footer {
         visibility: visible !important;
     }
 }
+
 
 

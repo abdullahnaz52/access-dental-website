@@ -3,17 +3,15 @@ const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenuClose = document.querySelector('.mobile-menu-close');
 const navUl = document.querySelector('nav ul');
 
-// Show menu and close button
+// Show menu when hamburger is clicked
 mobileMenuBtn.addEventListener('click', function() {
     navUl.classList.add('active');
-    mobileMenuClose.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 });
 
-// Hide menu and close button
+// Hide menu when close button is clicked
 mobileMenuClose.addEventListener('click', function() {
     navUl.classList.remove('active');
-    this.style.display = 'none';
     document.body.style.overflow = '';
 });
 
@@ -21,7 +19,6 @@ mobileMenuClose.addEventListener('click', function() {
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         navUl.classList.remove('active');
-        mobileMenuClose.style.display = 'none';
         document.body.style.overflow = '';
     });
 });
@@ -37,7 +34,6 @@ document.addEventListener('click', function(event) {
         !isClickOnMenuBtn &&
         !isClickOnCloseBtn) {
         navUl.classList.remove('active');
-        mobileMenuClose.style.display = 'none';
         document.body.style.overflow = '';
     }
 });
@@ -46,7 +42,6 @@ document.addEventListener('click', function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' && navUl.classList.contains('active')) {
         navUl.classList.remove('active');
-        mobileMenuClose.style.display = 'none';
         document.body.style.overflow = '';
     }
 });
@@ -55,7 +50,6 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
         navUl.classList.remove('active');
-        mobileMenuClose.style.display = 'none';
         document.body.style.overflow = '';
     }
 });
@@ -304,5 +298,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const logo = document.querySelector('.logo');
     if (logo) {
         logo.style.animation = 'logoEntrance 1s ease-out 0.5s forwards';
+    }
+    
+    // Test if mobile WhatsApp button exists and is visible
+    const whatsappBtn = document.querySelector('.floating-whatsapp-mobile');
+    if (whatsappBtn && window.innerWidth <= 768) {
+        console.log('Mobile WhatsApp button is active');
     }
 });

@@ -220,7 +220,49 @@ function sendMessage() {
         }, 1000);
     }
 }
+// Enhanced Chatbot for Mobile
+function initChatbotMobile() {
+    const chatbotWindow = document.querySelector('.chatbot-window');
+    const chatbotInput = document.querySelector('.chatbot-input input');
+    const chatbotMessages = document.querySelector('.chatbot-messages');
+    
+    if (!chatbotWindow) return;
+    
+    // Auto-focus input when chatbot opens on desktop
+    // But avoid on mobile to prevent keyboard popup
+    chatbotToggle.addEventListener('click', () => {
+        if (window.innerWidth > 768) {
+            setTimeout(() => {
+                chatbotInput.focus();
+            }, 300);
+        }
+    });
+    
+    // Ensure messages scroll to bottom when new message is added
+    const observer = new MutationObserver(() => {
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    });
+    
+    observer.observe(chatbotMessages, {
+        childList: true,
+        subtree: true
+    });
+    
+    // Handle mobile keyboard appearance
+    if (window.innerWidth <= 768) {
+        chatbotInput.addEventListener('focus', () => {
+            // Add a small delay to ensure keyboard is fully up
+            setTimeout(() => {
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 300);
+        });
+    }
+}
 
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initChatbotMobile();
+});
 // Form submission
 document.getElementById('appointmentForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -332,4 +374,5 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Mobile WhatsApp button is active');
     }
 });
+
 

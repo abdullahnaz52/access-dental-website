@@ -251,12 +251,11 @@ nav ul li a:hover::after {
 }
 
 /* Show close button only when menu is active */
-nav ul.active ~ .mobile-menu-close,
-nav ul.active + .mobile-menu-close {
+nav ul.active ~ .mobile-menu-close {
     display: flex;
 }
 
-/* Mobile WhatsApp Button */
+/* ===== MOBILE WHATSAPP BUTTON - FIXED ===== */
 .floating-whatsapp-mobile {
     display: none;
     position: fixed;
@@ -270,7 +269,7 @@ nav ul.active + .mobile-menu-close {
     box-shadow: 
         0 4px 15px rgba(37, 211, 102, 0.4),
         0 0 20px rgba(37, 211, 102, 0.3);
-    z-index: 997;
+    z-index: 999;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     align-items: center;
     gap: 8px;
@@ -743,7 +742,7 @@ nav ul.active + .mobile-menu-close {
     outline: none;
 }
 
-/* ===== SOCIAL LINKS STYLING ===== */
+/* ===== SOCIAL LINKS STYLING - FIXED ===== */
 .social-links {
     display: flex;
     gap: 15px;
@@ -758,7 +757,6 @@ nav ul.active + .mobile-menu-close {
     justify-content: center;
     width: 45px;
     height: 45px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--white);
     text-decoration: none;
@@ -773,7 +771,7 @@ nav ul.active + .mobile-menu-close {
     transition: transform 0.3s ease;
 }
 
-/* Instagram Specific */
+/* Instagram */
 .social-icon[href*="instagram"] {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
@@ -783,7 +781,7 @@ nav ul.active + .mobile-menu-close {
     box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
 }
 
-/* YouTube Specific */
+/* YouTube */
 .social-icon[href*="youtube"] {
     background: #FF0000;
 }
@@ -793,7 +791,7 @@ nav ul.active + .mobile-menu-close {
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
-/* WhatsApp Specific */
+/* WhatsApp */
 .social-icon[href*="whatsapp"] {
     background: #25D366;
 }
@@ -803,7 +801,7 @@ nav ul.active + .mobile-menu-close {
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
 
-/* LinkedIn Specific */
+/* LinkedIn */
 .social-icon[href*="linkedin"] {
     background: #0077B5;
 }
@@ -1105,7 +1103,7 @@ footer {
 
 /* ===== RESPONSIVE STYLES ===== */
 
-/* Tablet View (768px and below) */
+/* Tablet and Mobile View (768px and below) */
 @media (max-width: 768px) {
     .header-container {
         padding: 12px 15px;
@@ -1123,9 +1121,9 @@ footer {
         display: none;
     }
     
-    /* Show mobile WhatsApp */
+    /* Show mobile WhatsApp - FIXED */
     .floating-whatsapp-mobile {
-        display: flex;
+        display: flex !important;
     }
     
     /* Logo adjustments for tablet */
@@ -1142,6 +1140,15 @@ footer {
     .logo-text {
         font-size: 0.9rem;
         letter-spacing: 0.3px;
+    }
+    
+    /* Social links center on mobile */
+    .social-links {
+        justify-content: center;
+    }
+    
+    footer .social-links {
+        justify-content: center;
     }
     
     /* Navigation menu */
@@ -1218,14 +1225,6 @@ footer {
     .specialists-grid {
         grid-template-columns: 1fr;
         gap: 30px;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    footer .social-links {
-        justify-content: center;
     }
 }
 
@@ -1344,5 +1343,14 @@ footer {
     
     .logo-image {
         height: 26px;
+    }
+}
+
+/* Force WhatsApp button display on mobile - Emergency Fix */
+@media (max-width: 768px) {
+    .floating-whatsapp-mobile {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 }

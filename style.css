@@ -1013,10 +1013,11 @@ footer {
 }
 
 /* ===== CHATBOT - MOBILE FIXED ===== */
+/* ===== CHATBOT - MOBILE CENTERED ===== */
 .chatbot-container {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 30px;
+    right: 30px;
     z-index: 1000;
 }
 
@@ -1088,7 +1089,7 @@ footer {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    min-height: 0; /* Important for flexbox scrolling */
+    min-height: 0;
 }
 
 .message {
@@ -1156,26 +1157,31 @@ footer {
     font-size: 1.1rem;
 }
 
-/* ===== MOBILE CHATBOT FIXES ===== */
+/* ===== MOBILE CHATBOT - CENTERED POSITION ===== */
 @media (max-width: 768px) {
     .chatbot-container {
-        bottom: 80px; /* Move up to avoid WhatsApp button */
-        right: 15px;
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
     
     .chatbot-toggle {
-        width: 55px;
-        height: 55px;
-        font-size: 1.3rem;
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
     
     .chatbot-window {
-        width: 320px;
-        height: 450px;
-        bottom: 70px;
-        right: 0;
-        left: auto;
-        transform: none;
+        width: 95vw;
+        max-width: 350px;
+        height: 70vh;
+        max-height: 500px;
+        bottom: 80px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
     
     .chatbot-header {
@@ -1220,29 +1226,20 @@ footer {
 
 @media (max-width: 576px) {
     .chatbot-container {
-        bottom: 70px;
-        right: 10px;
+        bottom: 15px;
     }
     
     .chatbot-toggle {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
     }
     
     .chatbot-window {
-        width: 300px;
-        height: 420px;
-        bottom: 65px;
-        right: -10px;
-    }
-    
-    /* Ensure chatbot doesn't go off-screen on small devices */
-    @media (max-width: 320px) {
-        .chatbot-window {
-            width: 280px;
-            right: -15px;
-        }
+        width: 92vw;
+        height: 65vh;
+        max-height: 450px;
+        bottom: 75px;
     }
     
     .chatbot-header {
@@ -1287,9 +1284,21 @@ footer {
 
 /* Extra small devices */
 @media (max-width: 400px) {
+    .chatbot-container {
+        bottom: 10px;
+    }
+    
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
     .chatbot-window {
-        width: 280px;
-        height: 400px;
+        width: 90vw;
+        height: 60vh;
+        max-height: 400px;
+        bottom: 70px;
     }
     
     .chatbot-messages {
@@ -1302,7 +1311,7 @@ footer {
     }
 }
 
-/* Ensure chatbot is above WhatsApp button */
+/* Ensure proper z-index hierarchy */
 .floating-whatsapp-mobile {
     z-index: 998;
 }
@@ -1336,6 +1345,24 @@ footer {
 
 .chatbot-messages::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* Mobile-specific animations */
+@keyframes slideUpMobile {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .chatbot-window.active {
+        animation: slideUpMobile 0.3s ease;
+    }
 }
 
 /* ===== ANIMATIONS ===== */
@@ -1641,6 +1668,7 @@ footer {
         visibility: visible !important;
     }
 }
+
 
 
 

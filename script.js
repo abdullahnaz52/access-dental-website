@@ -1,3 +1,29 @@
+// Force WhatsApp button display on mobile
+function checkAndShowWhatsAppButton() {
+    const whatsappBtn = document.querySelector('.floating-whatsapp-mobile');
+    if (whatsappBtn && window.innerWidth <= 768) {
+        whatsappBtn.style.display = 'flex';
+        console.log('WhatsApp button should be visible on mobile');
+    }
+}
+
+// Check on load and resize
+window.addEventListener('load', checkAndShowWhatsAppButton);
+window.addEventListener('resize', checkAndShowWhatsAppButton);
+
+// Also add this to DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    checkAndShowWhatsAppButton();
+    
+    // Test social links
+    const socialLinks = document.querySelectorAll('.social-icon');
+    console.log('Social links found:', socialLinks.length);
+    
+    socialLinks.forEach(link => {
+        console.log('Social link:', link.href, link.className);
+    });
+});
+
 // Mobile Menu Functionality
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenuClose = document.querySelector('.mobile-menu-close');
@@ -306,3 +332,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Mobile WhatsApp button is active');
     }
 });
+

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#03060d">
+  <title>Privacy Policy | Access Dental Care & Orthodontics</title>
+  <meta name="description" content="Privacy Policy for Access Dental Care & Orthodontics, Srinagar. Learn how we collect, use and protect your personal information.">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:      #03060d;
+      --bg2:     #070d1a;
+      --bg3:     #0c1428;
+      --border:  rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.14);
+      --purple:  #8b5cf6;
+      --purple2: #a78bfa;
+      --cyan:    #06b6d4;
+      --cyan2:   #22d3ee;
+      --gold:    #fbbf24;
+      --grey:    rgba(255,255,255,0.55);
+      --grey2:   rgba(255,255,255,0.35);
+      --grad:    linear-gradient(135deg,#8b5cf6,#06b6d4);
+      --trans:   all 0.3s ease;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--cyan2); text-decoration: none; transition: var(--trans); }
+    a:hover { color: var(--purple2); text-decoration: underline; }
+
+    /* ── Noise ── */
+    body::before {
+      content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+      opacity:0.022;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top:0; z-index:100;
+      background: rgba(3,6,13,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+    }
+    .header-inner {
+      max-width: 1000px; margin:0 auto;
+      display: flex; align-items:center; justify-content:space-between;
+      height: 68px;
+    }
+    .logo {
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+    }
+    .logo img { height:40px; width:auto; filter:drop-shadow(0 0 8px rgba(139,92,246,0.4)); }
+    .logo-words { display:flex; flex-direction:column; line-height:1.2; }
+    .logo-top { font-family:'Syne',sans-serif; font-weight:800; font-size:0.8rem; letter-spacing:1.5px; color:#fff; }
+    .logo-bot { font-size:0.65rem; letter-spacing:1px; color:var(--grey2); }
+
+    .back-link {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 18px;
+      border: 1px solid var(--border2);
+      border-radius: 50px;
+      font-size: 0.82rem; font-weight:600;
+      color: var(--grey);
+      transition: var(--trans);
+    }
+    .back-link:hover {
+      border-color: var(--purple2); color:#fff;
+      background: rgba(139,92,246,0.08);
+      text-decoration: none;
+    }
+
+    /* ── Hero banner ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border);
+      padding: 64px 32px 56px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%);
+      width:500px; height:500px; border-radius:50%;
+      background: radial-gradient(circle, rgba(139,92,246,0.12), transparent 70%);
+      pointer-events:none;
+    }
+    .page-tag {
+      display:inline-block;
+      padding: 5px 18px;
+      border: 1px solid rgba(139,92,246,0.35);
+      border-radius: 50px;
+      font-size: 0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+      color: var(--purple2); background: rgba(139,92,246,0.07);
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family:'Syne',sans-serif; font-weight:800;
+      font-size: clamp(2rem,5vw,3rem);
+      color:#fff; margin-bottom:14px;
+    }
+    .page-hero h1 span {
+      background: var(--grad);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .page-hero p {
+      color:var(--grey); font-size:0.95rem;
+      max-width: 520px; margin:0 auto;
+    }
+
+    /* ── Content ── */
+    .content-wrap {
+      max-width: 860px; margin:0 auto;
+      padding: 64px 32px 100px;
+    }
+
+    /* Last updated badge */
+    .last-updated {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 16px;
+      background: rgba(251,191,36,0.08);
+      border: 1px solid rgba(251,191,36,0.25);
+      border-radius: 10px;
+      font-size:0.8rem; color: var(--gold);
+      margin-bottom: 48px;
+    }
+    .last-updated i { font-size:0.85rem; }
+
+    /* Sections */
+    .policy-section {
+      margin-bottom: 48px;
+      padding: 36px 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      position: relative; overflow:hidden;
+      transition: var(--trans);
+    }
+    .policy-section::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:100%;
+      background: var(--grad); border-radius:2px;
+    }
+    .policy-section:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(139,92,246,0.25);
+    }
+
+    .section-num {
+      display:inline-block;
+      font-size:0.65rem; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+      color:var(--purple2); margin-bottom:10px;
+      font-family:'Space Grotesk',sans-serif;
+    }
+    .policy-section h2 {
+      font-family:'Syne',sans-serif; font-weight:700;
+      font-size:1.3rem; color:#fff;
+      margin-bottom: 18px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .policy-section h2 i {
+      width:36px; height:36px;
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.3);
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.9rem; flex-shrink:0;
+      background: linear-gradient(135deg,rgba(139,92,246,0.2),rgba(6,182,212,0.1));
+    }
+    .policy-section h2 i::before { 
+      background:var(--grad); -webkit-background-clip:text; 
+      -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    .policy-section p {
+      color: var(--grey); font-size:0.93rem; margin-bottom:14px; line-height:1.8;
+    }
+    .policy-section p:last-child { margin-bottom:0; }
+
+    .policy-section ul {
+      list-style:none; margin:14px 0;
+    }
+    .policy-section ul li {
+      display:flex; align-items:flex-start; gap:10px;
+      color:var(--grey); font-size:0.93rem;
+      margin-bottom:10px; line-height:1.7;
+    }
+    .policy-section ul li::before {
+      content:''; display:inline-block; flex-shrink:0;
+      width:6px; height:6px; border-radius:50%;
+      background: var(--grad);
+      margin-top:8px;
+    }
+
+    strong { color:#fff; font-weight:600; }
+
+    /* Contact card */
+    .contact-card {
+      display:flex; align-items:center; gap:18px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(6,182,212,0.07));
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius:16px; margin-top:20px;
+    }
+    .contact-card-icon {
+      width:48px; height:48px; border-radius:14px;
+      background: var(--grad);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:#fff; flex-shrink:0;
+    }
+    .contact-card h4 { font-family:'Space Grotesk',sans-serif; font-size:0.9rem; font-weight:700; color:#fff; margin-bottom:4px; }
+    .contact-card p { color:var(--grey); font-size:0.85rem; margin:0; }
+    .contact-card a { color:var(--cyan2); }
+
+    /* AdSense note */
+    .adsense-note {
+      margin-top:16px; padding:16px 20px;
+      background: rgba(251,191,36,0.06);
+      border:1px solid rgba(251,191,36,0.2);
+      border-radius:12px;
+      font-size:0.85rem; color:rgba(251,191,36,0.85);
+      display:flex; align-items:flex-start; gap:10px;
+    }
+    .adsense-note i { flex-shrink:0; margin-top:2px; }
+
+    /* Footer */
+    .page-footer {
+      background: var(--bg2);
+      border-top:1px solid var(--border);
+      padding: 32px;
+      text-align:center;
+    }
+    .page-footer p { font-size:0.82rem; color:var(--grey2); }
+    .page-footer a { color:var(--purple2); }
+    .neurigenx { color:var(--purple2); font-weight:600; }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      header { padding:0 16px; }
+      .logo-bot { display:none; }
+      .page-hero { padding:44px 20px 40px; }
+      .content-wrap { padding:40px 16px 72px; }
+      .policy-section { padding:24px 22px; }
+      .contact-card { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo-trans.png" alt="Access Dental Care">
+        <div class="logo-words">
+          <span class="logo-top">ACCESS DENTAL CARE</span>
+          <span class="logo-bot">&amp; ORTHODONTICS</span>
+        </div>
+      </a>
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Website
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="page-tag">Legal</div>
+    <h1>Privacy <span>Policy</span></h1>
+    <p>How we collect, use, and protect your personal information at Access Dental Care &amp; Orthodontics.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap">
+
+    <div class="last-updated">
+      <i class="fas fa-calendar-check"></i>
+      Last Updated: June 2025 &nbsp;·&nbsp; Effective Date: June 2025
+    </div>
+
+    <!-- 1. Introduction -->
+    <div class="policy-section">
+      <span class="section-num">01 — Overview</span>
+      <h2><i class="fas fa-shield-alt"></i> Introduction</h2>
+      <p>Welcome to <strong>Access Dental Care &amp; Orthodontics</strong> ("we," "our," or "us"), located at Anzimar, Khanyar, Srinagar, J&amp;K — 190003. We are committed to protecting your personal information and your right to privacy.</p>
+      <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>accessdentalcare.in</strong> and when you use our services. Please read this policy carefully. If you disagree with its terms, please discontinue use of our site.</p>
+    </div>
+
+    <!-- 2. Information We Collect -->
+    <div class="policy-section">
+      <span class="section-num">02 — Data Collection</span>
+      <h2><i class="fas fa-database"></i> Information We Collect</h2>
+      <p>We may collect information about you in the following ways:</p>
+      <p><strong>Information you provide directly:</strong></p>
+      <ul>
+        <li>Name, phone number, and email address when you fill out our appointment request form</li>
+        <li>Messages or enquiries you send through our contact form or chatbot</li>
+        <li>Information you provide when you contact us via WhatsApp or phone</li>
+      </ul>
+      <p><strong>Information collected automatically:</strong></p>
+      <ul>
+        <li>Browser type and version</li>
+        <li>Pages visited and time spent on our website</li>
+        <li>Referring website addresses</li>
+        <li>Device type and operating system</li>
+        <li>IP address (anonymised where possible)</li>
+      </ul>
+    </div>
+
+    <!-- 3. Cookies & Advertising -->
+    <div class="policy-section">
+      <span class="section-num">03 — Cookies &amp; Advertising</span>
+      <h2><i class="fas fa-cookie-bite"></i> Cookies &amp; Google AdSense</h2>
+      <p>Our website uses <strong>cookies</strong> — small text files stored on your device — to improve your browsing experience and to serve relevant advertisements.</p>
+      <p><strong>Google AdSense:</strong> We use Google AdSense to display advertisements on our website. Google uses cookies (including the DoubleClick cookie) to serve ads based on your prior visits to our website and other websites on the internet.</p>
+      <div class="adsense-note">
+        <i class="fas fa-info-circle"></i>
+        <span>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a> or by visiting <a href="https://www.aboutads.info" target="_blank">aboutads.info</a>. You can also opt out via the <a href="https://www.networkadvertising.org/managing/opt_out.asp" target="_blank">Network Advertising Initiative opt-out page</a>.</span>
+      </div>
+      <p style="margin-top:16px"><strong>Types of cookies we use:</strong></p>
+      <ul>
+        <li><strong>Essential cookies</strong> — Required for the website to function properly</li>
+        <li><strong>Analytics cookies</strong> — Help us understand how visitors interact with our website (e.g., Google Analytics)</li>
+        <li><strong>Advertising cookies</strong> — Used by Google AdSense to serve personalised ads based on your browsing history</li>
+        <li><strong>Functional cookies</strong> — Remember your preferences to improve your experience</li>
+      </ul>
+      <p>You can control and/or delete cookies through your browser settings. However, disabling cookies may affect the functionality of our website.</p>
+    </div>
+
+    <!-- 4. How We Use Information -->
+    <div class="policy-section">
+      <span class="section-num">04 — Data Usage</span>
+      <h2><i class="fas fa-cogs"></i> How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process and respond to your appointment requests and enquiries</li>
+        <li>Contact you regarding your dental appointments or follow-ups</li>
+        <li>Improve our website, services, and patient experience</li>
+        <li>Send you relevant information about our services (only if you have opted in)</li>
+        <li>Comply with legal obligations and protect our legal rights</li>
+        <li>Analyse website usage to improve content and functionality</li>
+        <li>Serve relevant advertisements through Google AdSense</li>
+      </ul>
+      <p>We will <strong>never sell, rent, or trade</strong> your personal information to third parties for their marketing purposes.</p>
+    </div>
+
+    <!-- 5. Third Party Services -->
+    <div class="policy-section">
+      <span class="section-num">05 — Third Parties</span>
+      <h2><i class="fas fa-handshake"></i> Third-Party Services</h2>
+      <p>Our website may interact with the following third-party services, each with their own privacy policies:</p>
+      <ul>
+        <li><strong>Google AdSense</strong> — Advertising platform. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>Google Analytics</strong> — Website analytics. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>WhatsApp (Meta)</strong> — Communication. <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank">WhatsApp Privacy Policy</a></li>
+        <li><strong>Google Forms</strong> — Appointment booking. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>DuckDuckGo</strong> — Search functionality in chatbot. <a href="https://duckduckgo.com/privacy" target="_blank">DuckDuckGo Privacy Policy</a></li>
+        <li><strong>Instagram / Meta</strong> — Social media links. <a href="https://privacycenter.instagram.com/policy" target="_blank">Instagram Privacy Policy</a></li>
+        <li><strong>YouTube / Google</strong> — Social media links. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+      </ul>
+      <p>We are not responsible for the privacy practices of these third-party services. We encourage you to review their respective privacy policies.</p>
+    </div>
+
+    <!-- 6. Data Security -->
+    <div class="policy-section">
+      <span class="section-num">06 — Security</span>
+      <h2><i class="fas fa-lock"></i> Data Security</h2>
+      <p>We implement appropriate technical and organisational security measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction.</p>
+      <p>However, please be aware that no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+      <p>We retain your personal data only for as long as necessary to fulfil the purposes outlined in this policy, or as required by law.</p>
+    </div>
+
+    <!-- 7. Your Rights -->
+    <div class="policy-section">
+      <span class="section-num">07 — Your Rights</span>
+      <h2><i class="fas fa-user-shield"></i> Your Rights</h2>
+      <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Right to Access</strong> — Request a copy of the personal data we hold about you</li>
+        <li><strong>Right to Rectification</strong> — Request correction of inaccurate or incomplete data</li>
+        <li><strong>Right to Erasure</strong> — Request deletion of your personal data under certain circumstances</li>
+        <li><strong>Right to Restrict Processing</strong> — Request that we limit how we use your data</li>
+        <li><strong>Right to Object</strong> — Object to our processing of your personal data</li>
+        <li><strong>Right to Opt Out of Advertising</strong> — Opt out of personalised ads via Google Ads Settings</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us using the details below. We will respond to your request within <strong>30 days</strong>.</p>
+    </div>
+
+    <!-- 8. Children's Privacy -->
+    <div class="policy-section">
+      <span class="section-num">08 — Children</span>
+      <h2><i class="fas fa-child"></i> Children's Privacy</h2>
+      <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately and we will delete such information from our records.</p>
+      <p>For pediatric dental appointments, we collect information about the child from their parent or legal guardian.</p>
+    </div>
+
+    <!-- 9. Changes -->
+    <div class="policy-section">
+      <span class="section-num">09 — Updates</span>
+      <h2><i class="fas fa-sync-alt"></i> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will update the "Last Updated" date at the top of this page.</p>
+      <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information. Your continued use of our website after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- 10. Contact -->
+    <div class="policy-section">
+      <span class="section-num">10 — Contact Us</span>
+      <h2><i class="fas fa-envelope"></i> Contact Us About Privacy</h2>
+      <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+      <div class="contact-card">
+        <div class="contact-card-icon"><i class="fas fa-tooth"></i></div>
+        <div>
+          <h4>Access Dental Care &amp; Orthodontics</h4>
+          <p>
+            📍 Anzimar, Khanyar, Srinagar, J&amp;K — 190003<br>
+            📞 <a href="tel:+917051111411">+91-7051111411</a> &nbsp;|&nbsp;
+            💬 <a href="https://wa.me/917051111411" target="_blank">WhatsApp</a><br>
+            ✉️ <a href="mailto:Shifaclinicc@gmail.com">Shifaclinicc@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content-wrap -->
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <p>&copy; 2025 Access Dental Care &amp; Orthodontics. All Rights Reserved.</p>
+    <p style="margin-top:6px">
+      <a href="index.html">← Back to Home</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      Powered by <a href="https://www.neurigenx.com" target="_blank" class="neurigenx">Neurigenx</a>
+    </p>
+  </div>
+
+</body>
+</html>

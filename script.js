@@ -160,72 +160,110 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Form submission handling with consent
-// Form submission handling with Formspree
 const appointmentForm = document.getElementById('appointmentForm');
 const submitBtn = document.getElementById('submitBtn');
 const consentCheckbox = document.getElementById('consentCheckbox');
-const formStatus = document.getElementById('formStatus');
 
 if (appointmentForm) {
-  // Set the reply-to email dynamically
-  const emailInput = document.getElementById('email');
-  if (emailInput) {
-    emailInput.addEventListener('change', function() {
-      document.getElementById('replytoEmail').value = this.value;
-    });
-  }
-  
-  appointmentForm.addEventListener('submit', async function(e) {
+  appointmentForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Check consent
+    // Check if consent is given
     if (!consentCheckbox.checked) {
-      formStatus.innerHTML = '<span style="color: #ef4444;">⚠️ Please confirm your consent to continue.</span>';
+      // Show error message
+      consentCheckbox.parentElement.classList.add('error');
+      
+      // Create or update error message
+      let errorMsg = document.querySelector('.consent-error');
+      if (!errorMsg) {
+        errorMsg = document.createElement('div');
+        errorMsg.className = 'consent-error';
+        errorMsg.style.color = '#ef4444';
+        errorMsg.style.fontSize = '0.8rem';
+        errorMsg.style.marginTop = '8px';
+        consentCheckbox.parentElement.parentElement.appendChild(errorMsg);
+      }
+      errorMsg.textContent = 'Please confirm your consent to continue.';
+      
+      // Scroll to checkbox
       consentCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
+    
+    // Remove error state if present
+    consentCheckbox.parentElement.classList.remove('error');
+    const existingError = document.querySelector('.consent-error');
+    if (existingError) existingError.remove();
+    
+    // Collect form data
+    const formData = {
+      name: document.getElementById('name')?.value || '',
+      phone: document.getElementById('phone')?.value || '',
+      email: document.getElementById('email')?.value || '',
+      service: document.getElementById('service')?.value || '',
+      message: document.getElementById('message')?.value || '',
+      consent: true,
+      consentDate: new Date().toISOString()
+    };
+    
+    // Store consent record (optional, for compliance)
+    localStorage.setItem('formConsent', JSON.stringify({
+      given: true,
+      timestamp: new Date().toISOString(),
+      formData: formData
+    }));
     
     // Show loading state
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-pulse"></i>';
     submitBtn.disabled = true;
-    formStatus.innerHTML = '<span style="color: #8b5cf6;">📤 Sending your request...</span>';
     
-    try {
-      // Submit to Formspree
-      const formData = new FormData(appointmentForm);
-      const response = await fetch(appointmentForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+    // Redirect to Google Form with pre-filled data (optional enhancement)
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform';
+    
+    // You can optionally pre-fill Google Form fields
+    // For now, just redirect
+    setTimeout(() => {
+      window.open(googleFormUrl, '_blank');
       
-      if (response.ok) {
-        // Success!
-        formStatus.innerHTML = '<span style="color: #10b981;">✅ Thank you! Your appointment request has been sent. We\'ll contact you within 24 hours.</span>';
-        appointmentForm.reset();
+      // Show success message
+      const successMsg = document.createElement('div');
+      successMsg.className = 'form-success-message';
+      successMsg.style.cssText = `
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid #10b981;
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 16px;
+        text-align: center;
+        color: #10b981;
+      `;
+      successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Redirecting to appointment form...';
+      appointmentForm.appendChild(successMsg);
+      
+      // Reset button after redirect
+      setTimeout(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
         
-        // Optional: Send acknowledgment email via your own server
-        await sendAcknowledgmentEmail(formData);
-        
-        setTimeout(() => {
-          formStatus.innerHTML = '';
-        }, 5000);
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      formStatus.innerHTML = '<span style="color: #ef4444;">❌ Something went wrong. Please WhatsApp us at +91-7051111411 or try again.</span>';
-    } finally {
-      submitBtn.innerHTML = originalBtnText;
-      submitBtn.disabled = false;
-    }
+        // Remove success message after 5 seconds
+        setTimeout(() => successMsg.remove(), 5000);
+      }, 2000);
+      
+    }, 500);
   });
+  
+  // Remove error when checkbox is checked
+  if (consentCheckbox) {
+    consentCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        this.parentElement.classList.remove('error');
+        const errorMsg = document.querySelector('.consent-error');
+        if (errorMsg) errorMsg.remove();
+      }
+    });
+  }
 }
-
   /* ── Specialist image fallback ── */
   document.querySelectorAll('.spec-img-wrap img').forEach(img => {
     img.addEventListener('error', function() {

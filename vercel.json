@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    }
+  ],
+  "cleanUrls": true
+}

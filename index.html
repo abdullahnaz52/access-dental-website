@@ -572,45 +572,61 @@
       </div>
 
       <!-- Form -->
-      <div class="contact-form-wrap reveal-right">
-        <form id="appointmentForm" class="appt-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" class="form-control" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="you@email.com" required>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Interested In</label>
-            <select id="service" class="form-control" required>
-              <option value="">Select a service</option>
-              <option value="orthodontic">Orthodontic Treatment</option>
-              <option value="implants">Dental Implants</option>
-              <option value="whitening">Teeth Whitening</option>
-              <option value="root-canal">Root Canal</option>
-              <option value="crowns">Crowns &amp; Bridges</option>
-              <option value="pediatric">Pediatric Dentistry</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your dental concerns…"></textarea>
-          </div>
-          <button type="submit" class="btn-primary full-w">
-            <span>Send Appointment Request</span><i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
+<!-- Form -->
+<div class="contact-form-wrap reveal-right">
+  <form id="appointmentForm" class="appt-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
       </div>
     </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" class="form-control" placeholder="you@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="service">Service Interested In</label>
+      <select id="service" class="form-control" required>
+        <option value="">Select a service</option>
+        <option value="orthodontic">Orthodontic Treatment</option>
+        <option value="implants">Dental Implants</option>
+        <option value="whitening">Teeth Whitening</option>
+        <option value="root-canal">Root Canal</option>
+        <option value="crowns">Crowns &amp; Bridges</option>
+        <option value="pediatric">Pediatric Dentistry</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your dental concerns…"></textarea>
+    </div>
+    
+    <!-- ✅ ADD THIS CONSENT CHECKBOX SECTION -->
+    <div class="form-group consent-group">
+      <label class="consent-checkbox">
+        <input type="checkbox" id="consentCheckbox" required>
+        <span class="checkmark"></span>
+        <span class="consent-text">
+          I consent to Access Dental Care & Orthodontics collecting and processing my personal information 
+          for appointment scheduling and communication purposes. I have read and agree to the 
+          <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+        </span>
+      </label>
+    </div>
+    <!-- END CONSENT SECTION -->
+    
+    <button type="submit" class="btn-primary full-w" id="submitBtn">
+      <span>Send Appointment Request</span><i class="fas fa-paper-plane"></i>
+    </button>
+  </form>
+</div>
+</div>
   </div>
 </section>
 

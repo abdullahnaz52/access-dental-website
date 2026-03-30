@@ -663,13 +663,13 @@
 </footer>
 
 <!-- ═══════════════════════════════════════
-     GROQ AI CHATBOT
+     AI DENTAL CHATBOT
 ═══════════════════════════════════════ -->
 <div class="chatbot-wrap">
-  <button class="chat-toggle" id="chatToggle" aria-label="Open AI Chat">
+  <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
     <i class="fas fa-tooth chat-icon-tooth"></i>
     <i class="fas fa-times chat-icon-close"></i>
-    <span class="chat-badge">AI</span>
+    <span class="chat-badge">Chat</span>
   </button>
 
   <div class="chat-panel" id="chatPanel">
@@ -677,32 +677,39 @@
     <div class="chat-head">
       <div class="chat-head-av"><i class="fas fa-tooth"></i></div>
       <div class="chat-head-info">
-        <strong>Dental AI Assistant</strong>
-        <span><em class="online-dot"></em>Online &amp; Ready</span>
+        <strong>Dental Assistant</strong>
+        <span><em class="online-dot"></em>Always here to help</span>
       </div>
       <button class="chat-head-close" id="chatClose"><i class="fas fa-chevron-down"></i></button>
-    </div>
-
-    <!-- Chips -->
-    <div class="chat-chips">
-      <button class="chip" data-q="How do I book an appointment?">📅 Book Appt</button>
-      <button class="chip" data-q="What are your working hours?">🕐 Hours</button>
-      <button class="chip" data-q="Tell me about braces and orthodontics">🦷 Braces</button>
-      <button class="chip" data-q="What does professional teeth whitening involve?">✨ Whitening</button>
     </div>
 
     <!-- Messages -->
     <div class="chat-msgs" id="chatMsgs">
       <div class="chat-bubble bot-bubble">
         <div class="bav"><i class="fas fa-tooth"></i></div>
-        <div class="btxt">Hello! I'm your AI Dental Assistant. Ask me anything about treatments, appointments, or our specialists! 😊</div>
+        <div class="btxt">Hello! 👋 I'm your dental assistant at <strong>Access Dental Care</strong>. Choose a topic below or type your question!</div>
       </div>
     </div>
 
-    <!-- Input -->
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Ask about treatments or appointments…" autocomplete="off">
-      <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+    <!-- Quick buttons -->
+    <div class="chat-quick-btns" id="chatQuickBtns">
+      <button class="qbtn" data-type="appointment">📅 Book Appointment</button>
+      <button class="qbtn" data-type="hours">🕐 Working Hours</button>
+      <button class="qbtn" data-type="doctors">👨‍⚕️ Our Doctors</button>
+      <button class="qbtn" data-type="braces">🦷 Braces & Aligners</button>
+      <button class="qbtn" data-type="whitening">✨ Teeth Whitening</button>
+      <button class="qbtn" data-type="implants">🔩 Dental Implants</button>
+      <button class="qbtn" data-type="rootcanal">💊 Root Canal</button>
+      <button class="qbtn" data-type="kids">👶 Kids Dentistry</button>
+      <button class="qbtn" data-type="about">🏥 About Clinic</button>
+      <button class="qbtn" data-type="contact">📞 Contact & Location</button>
+      <button class="qbtn" data-type="search">🔍 Search the Web</button>
+    </div>
+
+    <!-- Search input (shown only when search is selected) -->
+    <div class="chat-input-row" id="chatInputRow" style="display:none">
+      <input type="text" id="chatInput" placeholder="Search DuckDuckGo…" autocomplete="off">
+      <button id="chatSend"><i class="fas fa-search"></i></button>
     </div>
 
     <!-- Footer -->

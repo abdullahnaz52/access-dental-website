@@ -160,14 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ═══════════════════════════════════════════════════════════
-     FORMSUBMIT — Formspree Integration with Consent
+   /* ═══════════════════════════════════════════════════════════
+     FORMSUBMIT — Standard Form Submission (No CORS Issues)
   ═══════════════════════════════════════════════════════════ */
   const appointmentForm = document.getElementById('appointmentForm');
   const submitBtn = document.getElementById('submitBtn');
   const consentCheckbox = document.getElementById('consentCheckbox');
   
-  // Create status message container if it doesn't exist
+  // Create status message container
   let formStatus = document.getElementById('formStatus');
   if (!formStatus && appointmentForm) {
     formStatus = document.createElement('div');
@@ -176,20 +176,29 @@ document.addEventListener('DOMContentLoaded', () => {
     formStatus.style.textAlign = 'center';
     appointmentForm.appendChild(formStatus);
   }
+  
+  // Set reply-to email dynamically
+  const emailInput = document.getElementById('email');
+  const replytoHidden = document.getElementById('replytoEmail');
+  
+  if (emailInput && replytoHidden) {
+    emailInput.addEventListener('input', function() {
+      replytoHidden.value = this.value;
+    });
+    if (emailInput.value) {
+      replytoHidden.value = emailInput.value;
+    }
+  }
 
   if (appointmentForm) {
-    // Get the Formspree action URL from the form
-    const formspreeUrl = appointmentForm.getAttribute('action');
-    
-    appointmentForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    appointmentForm.addEventListener('submit', function(e) {
+      // Don't prevent default - let the form submit naturally
+      // But we need to validate consent first
       
-      // Check if consent is given
+      // Check consent
       if (!consentCheckbox.checked) {
-        // Show error message
+        e.preventDefault(); // Stop submission
         consentCheckbox.parentElement.classList.add('error');
-        
-        // Create or update error message
         let errorMsg = document.querySelector('.consent-error');
         if (!errorMsg) {
           errorMsg = document.createElement('div');
@@ -200,117 +209,49 @@ document.addEventListener('DOMContentLoaded', () => {
           consentCheckbox.parentElement.parentElement.appendChild(errorMsg);
         }
         errorMsg.textContent = 'Please confirm your consent to continue.';
-        
-        // Scroll to checkbox
         consentCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       
-      // Remove error state if present
-      consentCheckbox.parentElement.classList.remove('error');
-      const existingError = document.querySelector('.consent-error');
-      if (existingError) existingError.remove();
-      
-      // Show loading state
+      // Consent is checked, show loading message
+      // But we can't use async/await because form will redirect
       const originalBtnText = submitBtn.innerHTML;
       submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-pulse"></i>';
       submitBtn.disabled = true;
       
+      // Store consent in localStorage for record
+      const formData = {
+        name: document.getElementById('name')?.value || '',
+        phone: document.getElementById('phone')?.value || '',
+        email: document.getElementById('email')?.value || '',
+        service: document.getElementById('service')?.value || '',
+        message: document.getElementById('message')?.value || '',
+        consent: true,
+        consentDate: new Date().toISOString()
+      };
+      
+      localStorage.setItem('appointmentConsent', JSON.stringify({
+        given: true,
+        timestamp: new Date().toISOString(),
+        formData: formData
+      }));
+      
+      // Show success message before redirect
       if (formStatus) {
-        formStatus.innerHTML = '<span style="color: #8b5cf6;">📤 Sending your appointment request...</span>';
+        formStatus.innerHTML = `
+          <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; border-radius: 12px; padding: 12px;">
+            <i class="fas fa-check-circle" style="color: #10b981;"></i> 
+            <strong style="color: #10b981;">Thank you!</strong><br>
+            Your appointment request has been sent. You'll be redirected shortly...
+          </div>
+        `;
       }
       
-      try {
-        // Create FormData object from the form
-        const formData = new FormData(appointmentForm);
-        
-        // Add consent timestamp
-        formData.append('consent_given', 'yes');
-        formData.append('consent_timestamp', new Date().toISOString());
-        
-        // Store consent record locally for compliance
-        const formDataObj = {};
-        formData.forEach((value, key) => {
-          formDataObj[key] = value;
-        });
-        
-        localStorage.setItem('appointmentConsent', JSON.stringify({
-          given: true,
-          timestamp: new Date().toISOString(),
-          formData: formDataObj
-        }));
-        
-        // Send to Formspree
-        const response = await fetch(formspreeUrl, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (response.ok) {
-          // Success!
-          if (formStatus) {
-            formStatus.innerHTML = `
-              <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; border-radius: 12px; padding: 12px;">
-                <i class="fas fa-check-circle" style="color: #10b981;"></i> 
-                <strong style="color: #10b981;">Thank you!</strong><br>
-                Your appointment request has been sent successfully.<br>
-                We'll contact you within 24 hours at the phone/email you provided.
-              </div>
-            `;
-          }
-          
-          // Reset the form
-          appointmentForm.reset();
-          
-          // Clear any consent error styling
-          if (consentCheckbox) {
-            consentCheckbox.checked = false;
-            consentCheckbox.parentElement.classList.remove('error');
-          }
-          
-          // Scroll to show success message
-          formStatus?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          
-          // Auto-clear success message after 8 seconds
-          setTimeout(() => {
-            if (formStatus) formStatus.innerHTML = '';
-          }, 8000);
-          
-        } else {
-          // Error response from Formspree
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Submission failed');
-        }
-        
-      } catch (error) {
-        console.error('Form submission error:', error);
-        
-        if (formStatus) {
-          formStatus.innerHTML = `
-            <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; border-radius: 12px; padding: 12px;">
-              <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
-              <strong style="color: #ef4444;">Something went wrong!</strong><br>
-              Please try again or contact us directly on WhatsApp: 
-              <a href="https://wa.me/917051111411" target="_blank" style="color: #8b5cf6;">+91-7051111411</a>
-            </div>
-          `;
-        }
-        
-      } finally {
-        // Restore button state
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-        
-        // Auto-clear error message after 8 seconds
-        setTimeout(() => {
-          if (formStatus && formStatus.innerHTML.includes('went wrong')) {
-            formStatus.innerHTML = '';
-          }
-        }, 8000);
-      }
+      // Allow the form to submit after a short delay
+      setTimeout(() => {
+        // The form will submit to Formspree and redirect to their thank you page
+        appointmentForm.submit();
+      }, 1000);
     });
     
     // Remove error when checkbox is checked
@@ -324,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
   /* ── Specialist image fallback ── */
   document.querySelectorAll('.spec-img-wrap img').forEach(img => {
     img.addEventListener('error', function() {

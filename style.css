@@ -768,6 +768,111 @@ h1,h2,h3,h4,h5{
 select.form-control option{background:var(--bg3);color:#fff}
 textarea.form-control{resize:vertical;min-height:110px}
 
+/* Consent Checkbox Styles */
+.consent-group {
+  margin: 1.5rem 0;
+}
+
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0;
+}
+
+/* Hide default checkbox */
+.consent-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Custom checkbox */
+.checkmark {
+  position: relative;
+  display: inline-block;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+/* Checkmark on hover */
+.consent-checkbox:hover input ~ .checkmark {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* Checked state */
+.consent-checkbox input:checked ~ .checkmark {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+/* Checkmark icon */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.consent-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Consent text styling */
+.consent-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.consent-text a {
+  color: #8b5cf6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.consent-text a:hover {
+  color: #06b6d4;
+  text-decoration: underline;
+}
+
+/* Error state for checkbox */
+.consent-checkbox.error .checkmark {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .consent-text {
+    font-size: 0.75rem;
+  }
+  
+  .checkmark {
+    min-width: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
 /* ═══════════════════════════════
    FOOTER
 ═══════════════════════════════ */

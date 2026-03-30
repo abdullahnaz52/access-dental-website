@@ -1,39 +1,44 @@
 /* ═══════════════════════════════════════════════════════════
-   ACCESS DENTAL CARE & ORTHODONTICS
-   script.js — Full Site JS + Groq AI Chatbot (via Vercel Proxy)
-   ═══════════════════════════════════════════════════════════
-   NO API KEYS HERE — the key lives in Vercel Environment Variables.
-   The browser calls /api/chat which proxies Groq server-side.
+   ACCESS DENTAL CARE & ORTHODONTICS — script.js
+   Chatbot calls /api/chat (Vercel proxy — key stored server-side)
    ═══════════════════════════════════════════════════════════ */
 'use strict';
 
-/* ── Groq proxy endpoint (Vercel serverless function) ── */
+/* ── Chat via Vercel serverless proxy ── */
 const CHAT_ENDPOINT = '/api/chat';
 
-/* ── Conversation history (client-side, sent to proxy each time) ── */
 const conversationHistory = [];
 
 async function askGroq(userMessage) {
   conversationHistory.push({ role: 'user', content: userMessage });
 
   const res = await fetch(CHAT_ENDPOINT, {
-    method: 'POST',
+    method:  'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: conversationHistory })
+    body:    JSON.stringify({ messages: conversationHistory })
   });
 
+  // Log the raw response for debugging
+  const text = await res.text();
+  console.log('Proxy response status:', res.status);
+  console.log('Proxy response body:', text);
+
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `Server error ${res.status}`);
+    throw new Error(`Proxy error ${res.status}: ${text}`);
   }
 
-  const data  = await res.json();
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch(e) {
+    throw new Error('Invalid JSON from proxy: ' + text);
+  }
+
   const reply = data.reply ?? '';
+  if (!reply) throw new Error('Empty reply from proxy');
 
   conversationHistory.push({ role: 'assistant', content: reply });
-
-  /* Keep history manageable */
-  if (conversationHistory.length > 24) conversationHistory.splice(0, 2);
+  if (conversationHistory.length > 20) conversationHistory.splice(0, 2);
 
   return reply;
 }
@@ -56,11 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('site-header');
   const onScroll = () => {
     header.classList.toggle('scrolled', window.scrollY > 60);
-    const sections = document.querySelectorAll('section[id],.hero');
+    const sections = document.querySelectorAll('section[id]');
     let active = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) active = s.id;
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) active = s.id; });
     document.querySelectorAll('.nav-link').forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + active);
     });
@@ -82,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => e.key === 'Escape' && closeNav());
   window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
 
-  /* ── WhatsApp floating button ── */
+  /* ── WhatsApp floating ── */
   const floatWa = document.querySelector('.float-wa');
   const syncWa  = () => { if (floatWa) floatWa.style.display = window.innerWidth <= 768 ? 'flex' : 'none'; };
   syncWa();
@@ -139,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   tdots.forEach((d, i) => d.addEventListener('click', () => showTesti(i)));
   setInterval(() => showTesti(currentTesti + 1), 6500);
 
-  /* ── Scroll reveal (IntersectionObserver) ── */
+  /* ── Scroll reveal ── */
   const revealEls = document.querySelectorAll('.reveal,.reveal-up,.reveal-left,.reveal-right');
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -176,15 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.assign(icon.style, {
         display:'flex', alignItems:'center', justifyContent:'center',
         width:'110px', height:'110px', borderRadius:'50%',
-        background:'var(--surface2)', fontSize:'2.5rem',
-        color:'var(--purple2)'
+        background:'var(--surface2)', fontSize:'2.5rem', color:'var(--purple2)'
       });
       this.replaceWith(icon);
     });
   });
 
   /* ═══════════════════════════════
-     GROQ AI CHATBOT — via proxy
+     GROQ AI CHATBOT
   ═══════════════════════════════ */
   const chatToggle = document.getElementById('chatToggle');
   const chatPanel  = document.getElementById('chatPanel');
@@ -198,9 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openChat() {
     chatPanel.classList.add('open');
     chatToggle.classList.add('open');
-    if (window.innerWidth <= 768) {
-      chatPanel.style.maxHeight = (window.innerHeight - 160) + 'px';
-    }
+    if (window.innerWidth <= 768) chatPanel.style.maxHeight = (window.innerHeight - 160) + 'px';
     chatInput?.focus();
     scrollMsgs();
   }
@@ -212,39 +212,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   chatToggle?.addEventListener('click', () => chatPanel.classList.contains('open') ? closeChat() : openChat());
   chatClose?.addEventListener('click', closeChat);
-
   window.addEventListener('resize', () => {
-    if (chatPanel?.classList.contains('open')) {
+    if (chatPanel?.classList.contains('open'))
       chatPanel.style.maxHeight = window.innerWidth <= 768 ? (window.innerHeight - 160) + 'px' : '';
-    }
   });
 
-  /* Add a chat bubble */
   function addBubble(text, isUser = false) {
     const wrap = document.createElement('div');
     wrap.className = `chat-bubble ${isUser ? 'user-bubble' : 'bot-bubble'}`;
     if (!isUser) {
       const av = document.createElement('div');
-      av.className = 'bav';
-      av.innerHTML = '<i class="fas fa-tooth"></i>';
+      av.className = 'bav'; av.innerHTML = '<i class="fas fa-tooth"></i>';
       wrap.appendChild(av);
     }
     const txt = document.createElement('div');
-    txt.className = 'btxt';
-    txt.textContent = text;
+    txt.className = 'btxt'; txt.textContent = text;
     wrap.appendChild(txt);
     chatMsgs.appendChild(wrap);
     scrollMsgs();
   }
 
-  /* Typing indicator */
   function showTyping() {
     const wrap = document.createElement('div');
-    wrap.id = 'typing';
-    wrap.className = 'chat-bubble bot-bubble';
+    wrap.id = 'typing'; wrap.className = 'chat-bubble bot-bubble';
     const av = document.createElement('div');
-    av.className = 'bav';
-    av.innerHTML = '<i class="fas fa-tooth"></i>';
+    av.className = 'bav'; av.innerHTML = '<i class="fas fa-tooth"></i>';
     wrap.appendChild(av);
     const dots = document.createElement('div');
     dots.className = 'typing-dots';
@@ -256,33 +248,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function hideTyping() { document.getElementById('typing')?.remove(); }
 
-  /* Send a message */
   async function sendMsg() {
     const text = chatInput?.value.trim();
     if (!text || chatSend.disabled) return;
-
     chatInput.value = '';
-    chatSend.disabled  = true;
-    chatInput.disabled = true;
-
+    chatSend.disabled = true; chatInput.disabled = true;
     addBubble(text, true);
     showTyping();
-
     try {
       const reply = await askGroq(text);
       hideTyping();
       addBubble(reply, false);
     } catch (err) {
       hideTyping();
-      addBubble(
-        "I'm having trouble connecting right now. Please call or WhatsApp us at +91-7051111411 for immediate assistance!",
-        false
-      );
-      console.error('Chat error:', err);
+      console.error('Chatbot error:', err.message);
+      addBubble('Sorry, I had trouble connecting. Please call/WhatsApp +91-7051111411. Error: ' + err.message, false);
     } finally {
-      chatSend.disabled  = false;
-      chatInput.disabled = false;
-      chatInput.focus();
+      chatSend.disabled = false; chatInput.disabled = false; chatInput.focus();
     }
   }
 
@@ -291,16 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); }
   });
 
-  /* Quick chip buttons */
   document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
-      const q = chip.dataset.q || chip.textContent.replace(/^[^\w]+/, '');
-      if (chatInput && !chatSend.disabled) {
-        chatInput.value = q;
-        sendMsg();
-      }
+      if (chatInput && !chatSend.disabled) { chatInput.value = chip.dataset.q || ''; sendMsg(); }
     });
   });
 
-  console.log('✓ Access Dental — Groq proxy chatbot loaded');
+  console.log('✓ Access Dental — proxy chatbot loaded. Endpoint:', CHAT_ENDPOINT);
 });

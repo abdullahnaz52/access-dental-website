@@ -1,442 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Dental Care & Orthodontics | Premier Dental Clinic in Srinagar</title>
-    <meta name="description" content="Access Dental Care & Orthodontics offers quality dental treatments including orthodontics, implants, teeth whitening in Srinagar. Book your appointment today.">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#03060d">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Access Dental Care & Orthodontics | Premier Dental Clinic in Srinagar</title>
+  <meta name="description" content="Access Dental Care & Orthodontics — premier dental clinic in Srinagar offering orthodontics, implants, teeth whitening & more.">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#home" class="logo">
-                <img src="logo-trans.png" alt="Access Dental Care & Orthodontics" class="logo-image">
-                    <span class="logo-text">ACCESS DENTAL CARE & ORTHODONTICS</span>
-            </a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <div class="mobile-menu-close">
-                    <i class="fas fa-times"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#specialists">Specialists</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-close">
-                <i class="fas fa-times"></i>
-                </div>
-            </nav>
-            <a href="https://wa.me/917051111411" target="_blank" class="whatsapp-icon desktop-whatsapp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-    </header>
 
-    <!-- Floating WhatsApp Button for Mobile -->
-    <a href="https://wa.me/917051111411" target="_blank" class="floating-whatsapp-mobile">
-        <i class="fab fa-whatsapp"></i>
-        <span>WhatsApp</span>
+<!-- ░░ CURSOR GLOW ░░ -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ░░ NOISE OVERLAY ░░ -->
+<div class="noise-overlay"></div>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+═══════════════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <img src="logo-trans.png" alt="Access Dental" class="logo-img">
+      <div class="logo-words">
+        <span class="logo-top">ACCESS DENTAL CARE</span>
+        <span class="logo-bot">&amp; ORTHODONTICS</span>
+      </div>
     </a>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="home">
-        <div class="slide active" >
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>Quality Dental Care for Your Family</h1>
-                <p>Experience modern dentistry with a personal touch. Our team of specialists is here to provide you with the best dental care.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn">Book Appointment</a>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>Advanced Orthodontic Treatments</h1>
-                <p>From braces to Invisalign, we offer the latest orthodontic solutions for a perfect smile.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn">Book Appointment</a>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>Comfortable & Pain-Free Dentistry</h1>
-                <p>Our modern techniques ensure your dental visits are comfortable and stress-free.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn">Book Appointment</a>
-            </div>
-        </div>
-        <div class="slider-nav">
-            <div class="slider-dot active"></div>
-            <div class="slider-dot"></div>
-            <div class="slider-dot"></div>
-        </div>
-    </section>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home"         class="nav-link"><span>01</span>Home</a></li>
+        <li><a href="#about"        class="nav-link"><span>02</span>About</a></li>
+        <li><a href="#services"     class="nav-link"><span>03</span>Services</a></li>
+        <li><a href="#specialists"  class="nav-link"><span>04</span>Specialists</a></li>
+        <li><a href="#testimonials" class="nav-link"><span>05</span>Reviews</a></li>
+        <li><a href="#contact"      class="nav-link"><span>06</span>Contact</a></li>
+      </ul>
+    </nav>
 
-    <!-- Logo Marquee -->
-    <section class="logo-marquee">
-        <div class="marquee-container">
-            <div class="marquee-item">Dental Association</div>
-            <div class="marquee-item">Health Authority</div>
-            <div class="marquee-item">Quality Certified</div>
-            <div class="marquee-item">Technology Partner</div>
-            <div class="marquee-item">Award 2023</div>
-            <div class="marquee-item">Dental Association</div>
-            <div class="marquee-item">Health Authority</div>
-            <div class="marquee-item">Quality Certified</div>
-            <div class="marquee-item">Technology Partner</div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Us</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Access Dental Care & Orthodontics offers a wide range of oral health services especially Orthodontic treatment. Other treatments including dental implants, root canal, crowns tooth extraction, teeth whitening, veneers are also provided.</p>
-                    <p>The doctors are professional with good knowledge. Customised treatment is given to kids with special care needs. You can directly visit or call to book an appointment.</p>
-                    <p>Our clinic is equipped with modern technology and follows the highest standards of hygiene and sterilization to ensure the safety of our patients.</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn">Book Appointment</a>
-                </div>
-                <div class="about-image">
-                    <div class="tooth-3d" style="top: -30px; left: -30px; animation-delay: 0s;"></div>
-                    <div class="tooth-3d" style="bottom: -20px; right: -20px; animation-delay: 2s;"></div>
-                    <img src="clinic-image.png" alt="Access Dental Care Clinic">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-teeth"></i>
-                    </div>
-                    <h3>Orthodontic Treatment</h3>
-                    <p>Comprehensive braces and aligner treatments for all ages to achieve perfectly aligned teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                    <h3>Dental Implants</h3>
-                    <p>Permanent solution for missing teeth that look, feel, and function like natural teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-teeth-open"></i>
-                    </div>
-                    <h3>Teeth Whitening</h3>
-                    <p>Professional teeth whitening services to brighten your smile by several shades.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-teeth"></i>
-                    </div>
-                    <h3>Root Canal Treatment</h3>
-                    <p>Painless root canal procedures to save infected teeth and relieve discomfort.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Crowns & Bridges</h3>
-                    <p>Restore damaged teeth or replace missing ones with custom-made crowns and bridges.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <h3>Pediatric Dentistry</h3>
-                    <p>Specialized dental care for children in a friendly and comfortable environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Specialists Section -->
-    <section id="specialists">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Specialists</h2>
-            </div>
-            <div class="specialists-grid">
-                <div class="specialist-card">
-                    <div class="specialist-image-circle">
-                        <img src="sameer-photo.png" alt="Dr. Sameer Malik - Orthodontist">
-                    </div>
-                    <div class="specialist-info">
-                        <h3>Dr. Sameer Malik</h3>
-                        <p class="specialist-title">Orthodontist</p>
-                        <p>Regn. no. A-2294 (2014)</p>
-                        <p>BDS, HJ Endodontics (GDC Srinagar)</p>
-                        <p>MDS Orthodontics (RGUHS)</p>
-                        <p>MFDS RCS Edinburgh</p>
-                        <p>Fellowship in Cleft and Craniofacial Orthodontics, Sick Kids Hospital, Toronto</p>
-                        <p>Member Indian Society of Oral Implantology</p>
-                    </div>
-                </div>
-                <div class="specialist-card">
-                    <div class="specialist-image-circle">
-                        <img src="nida-photo.png" alt="Dr. Nida Lanker - General Dentist">
-                    </div>
-                    <div class="specialist-info">
-                        <h3>Dr. Nida Lanker</h3>
-                        <p class="specialist-title">General Dentist</p>
-                        <p>Regn. no. A-3341 (2017)</p>
-                        <p>BDS (GDC Srinagar)</p>
-                        <p>House Job in Oral Surgery (GDC Srinagar)</p>
-                        <p>University Gold Medalist in BDS</p>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <p><strong>Consultation: Monday to Saturday</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Patients Say</h2>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-slide active">
-                    <p class="testimonial-text">"Doctor Sameer was exceptionally spot-on with respect to the diagnosis and treatment planning. I have been under the treatment of few other doctors who suggested complicated procedures for my teeth alignment, but doctor Sameer was able to treat me with less invasive procedures and the results were amazing. He communicates well and is very approachable. I highly recommend Dr Sameer if you are looking for a well trained, knowledgable doctor who possess the right skills to address any of your tooth problems."</p>
-                    <p class="testimonial-author">- Gazal</p>
-                </div>
-                <div class="testimonial-slide">
-                    <p class="testimonial-text">"If you're looking for excellent dental care, this clinic is a fantastic choice! Dr. Nida is highly skilled, incredibly gentle, and especially great with kids—making the visit stress-free for little ones. The rates are very reasonable. Highly recommended!"</p>
-                    <p class="testimonial-author">- M Faheem</p>
-                </div>
-                <div class="testimonial-slide">
-                    <p class="testimonial-text">"Dr Sameer is exceptionally good and thorough professional. He does regular follow up with his patients with complete empathy which in itself provides strength to the patient to recover quickly. I personally had fear of dentists due to my past experiences but my perception has changed now. Thank you doctor for treating with utmost care. Kudos!"</p>
-                    <p class="testimonial-author">- Navreen</p>
-                </div>
-                <div class="testimonial-nav">
-                    <div class="testimonial-dot active"></div>
-                    <div class="testimonial-dot"></div>
-                    <div class="testimonial-dot"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Address</h3>
-                            <p>Anzimar, Khanyar, Srinagar, J and K. 190003</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone / WhatsApp</h3>
-                            <p>+91-7051111411</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>Shifaclinicc@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h3>Working Hours</h3>
-                            <p>Monday to Saturday: 9:00 AM - 7:00 PM</p>
-                        </div>
-                    </div>
-                    <!-- Social Media Section (Optional - Add before footer) -->
-<section class="social-media-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Follow Us</h2>
-            <p>Stay connected for dental tips and updates</p>
-        </div>
-        <div class="social-links-center">
-            <a href="https://www.instagram.com/access_dentalcare" target="_blank" class="social-icon" title="Follow us on Instagram">
-                <i class="fab fa-instagram"></i>
-                <span class="social-text">Instagram</span>
-            </a>
-            <a href="https://www.youtube.com/@Access_dentalcare" target="_blank" class="social-icon" title="Subscribe on YouTube">
-                <i class="fab fa-youtube"></i>
-                <span class="social-text">YouTube</span>
-            </a>
-            <a href="https://www.linkedin.com/in/sameer-ahmad-malik-531411177/?originalSubdomain=in" target="_blank" class="social-icon" title="Connect on LinkedIn">
-                <i class="fab fa-linkedin"></i>
-                <span class="social-text">LinkedIn</span>
-            </a>
-        </div>
+    <div class="header-actions">
+      <a href="https://wa.me/917051111411" target="_blank" class="wa-btn desktop-wa">
+        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" id="navClose"><i class="fas fa-times"></i></button>
+  <ul>
+    <li><a href="#home"         class="overlay-link">Home</a></li>
+    <li><a href="#about"        class="overlay-link">About</a></li>
+    <li><a href="#services"     class="overlay-link">Services</a></li>
+    <li><a href="#specialists"  class="overlay-link">Specialists</a></li>
+    <li><a href="#testimonials" class="overlay-link">Reviews</a></li>
+    <li><a href="#contact"      class="overlay-link">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/917051111411" target="_blank" class="overlay-wa">
+    <i class="fab fa-whatsapp"></i> WhatsApp Us
+  </a>
+</div>
+
+<!-- Floating Mobile WhatsApp -->
+<a href="https://wa.me/917051111411" target="_blank" class="float-wa">
+  <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+</a>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <!-- 3D orb background -->
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Grid lines -->
+  <div class="hero-grid"></div>
+
+  <!-- Slides -->
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('slide-one.jpg')">
+      <div class="slide-dim"></div>
+    </div>
+    <div class="hero-slide" style="background-image:url('slide-two.jpg')">
+      <div class="slide-dim"></div>
+    </div>
+    <div class="hero-slide" style="background-image:url('slide-three.jpg')">
+      <div class="slide-dim"></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-tag reveal-tag">Premier Dental Care · Srinagar, J&amp;K</div>
+    <h1 class="hero-h1">
+      <span class="line-wrap"><span class="line" data-slide="0">Your Smile,</span></span>
+      <span class="line-wrap"><span class="line grad-text" data-slide="0">Our Masterpiece</span></span>
+      <span class="line-wrap"><span class="line" data-slide="1" style="display:none">Advanced</span></span>
+      <span class="line-wrap"><span class="line grad-text" data-slide="1" style="display:none">Orthodontics</span></span>
+      <span class="line-wrap"><span class="line" data-slide="2" style="display:none">Pain-Free</span></span>
+      <span class="line-wrap"><span class="line grad-text" data-slide="2" style="display:none">Dentistry</span></span>
+    </h1>
+    <p class="hero-sub" id="heroSub">Experience modern dentistry with a personal touch. Our specialists deliver world-class care right here in Srinagar.</p>
+    <div class="hero-cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn-primary">
+        <span>Book Appointment</span><i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#about" class="btn-ghost">Explore <i class="fas fa-chevron-down"></i></a>
+    </div>
+  </div>
+
+  <!-- Slide nav -->
+  <div class="hero-nav">
+    <button class="hero-dot active" data-slide="0"></button>
+    <button class="hero-dot" data-slide="1"></button>
+    <button class="hero-dot" data-slide="2"></button>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+  <!-- Floating stat chips -->
+  <div class="hero-stats">
+    <div class="stat-chip"><strong>5000+</strong><span>Patients Treated</span></div>
+    <div class="stat-chip"><strong>10+</strong><span>Years of Excellence</span></div>
+    <div class="stat-chip"><strong>15+</strong><span>Treatments</span></div>
+  </div>
 </section>
-                </div>
-                <div class="contact-form">
-                    <form id="appointmentForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Select a service</option>
-                                <option value="orthodontic">Orthodontic Treatment</option>
-                                <option value="implants">Dental Implants</option>
-                                <option value="whitening">Teeth Whitening</option>
-                                <option value="root-canal">Root Canal</option>
-                                <option value="crowns">Crowns & Bridges</option>
-                                <option value="pediatric">Pediatric Dentistry</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Book Appointment</button>
-                    </form>
-                </div>
-            </div>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE — Dental Associations
+═══════════════════════════════════════ -->
+<div class="marquee-section">
+  <p class="marquee-eyebrow">Accreditations &amp; Associations</p>
+  <div class="marquee-fade-left"></div>
+  <div class="marquee-fade-right"></div>
+  <div class="marquee-viewport">
+    <div class="marquee-rail" id="marqueeRail">
+
+      <!-- IBE -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 4 L68 16 L68 36 C68 50 40 58 40 58 C40 58 12 50 12 36 L12 16 Z" fill="none" stroke="url(#g1)" stroke-width="2.5"/>
+            <path d="M40 10 L62 20 L62 36 C62 47 40 54 40 54 C40 54 18 47 18 36 L18 20 Z" fill="rgba(139,92,246,0.12)"/>
+            <path d="M33 28 Q33 23 37 23 Q40 23 40 26 Q40 23 43 23 Q47 23 47 28 L46 38 Q45 42 40 42 Q35 42 34 38 Z" fill="url(#g1)" opacity="0.9"/>
+            <line x1="38" y1="38" x2="37" y2="44" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="42" y1="38" x2="43" y2="44" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="29" y="18" font-size="6" fill="#fbbf24">★</text>
+            <text x="37" y="15" font-size="6" fill="#fbbf24">★</text>
+            <text x="45" y="18" font-size="6" fill="#fbbf24">★</text>
+            <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+          </svg>
         </div>
-    </section>
+        <span class="mcard-name">Indian Board of<br>Endodontics</span>
+      </div>
+
+      <!-- NABH -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <circle cx="40" cy="30" r="24" fill="none" stroke="url(#g2)" stroke-width="2"/>
+            <circle cx="40" cy="30" r="17" fill="rgba(139,92,246,0.1)"/>
+            <rect x="37" y="21" width="6" height="18" rx="2" fill="url(#g2)"/>
+            <rect x="31" y="27" width="18" height="6" rx="2" fill="url(#g2)"/>
+            <path d="M40 6 A24 24 0 0 1 64 30" stroke="#a78bfa" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <text x="21" y="14" font-size="6" fill="#fbbf24">★</text>
+            <text x="52" y="14" font-size="6" fill="#fbbf24">★</text>
+            <path d="M33 48 L37 52 L48 42" stroke="#06b6d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="mcard-name">NABH<br>Accredited</span>
+      </div>
+
+      <!-- DCI -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <rect x="36" y="44" width="8" height="6" rx="1" fill="url(#g3)" opacity="0.8"/>
+            <rect x="34" y="40" width="12" height="5" rx="1" fill="url(#g3)" opacity="0.7"/>
+            <rect x="38" y="16" width="4" height="25" rx="1" fill="url(#g3)"/>
+            <ellipse cx="40" cy="16" rx="10" ry="4" fill="none" stroke="#06b6d4" stroke-width="2"/>
+            <circle cx="30" cy="13" r="4" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+            <circle cx="50" cy="13" r="4" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+            <circle cx="40" cy="9" r="5" fill="none" stroke="url(#g3)" stroke-width="1.5"/>
+            <circle cx="40" cy="9" r="1.5" fill="#8b5cf6"/>
+            <line x1="40" y1="4" x2="40" y2="14" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/>
+            <line x1="35" y1="9" x2="45" y2="9" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/>
+            <line x1="36.5" y1="5.5" x2="43.5" y2="12.5" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+            <line x1="43.5" y1="5.5" x2="36.5" y2="12.5" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+            <rect x="18" y="50" width="44" height="2" rx="1" fill="#fbbf24" opacity="0.6"/>
+          </svg>
+        </div>
+        <span class="mcard-name">Dental Council<br>of India</span>
+      </div>
+
+      <!-- State Dental Council -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <path d="M20 38 Q22 28 28 24 Q32 20 36 18 Q42 15 48 17 Q55 19 58 25 Q60 30 57 36 Q54 42 48 44 Q44 48 40 50 Q36 48 32 44 Q24 42 20 38 Z" fill="rgba(139,92,246,0.15)" stroke="url(#g4)" stroke-width="2"/>
+            <polygon points="40,20 41.5,25 46,25 42.5,28 44,33 40,30 36,33 37.5,28 34,25 38.5,25" fill="#fbbf24" opacity="0.95"/>
+            <path d="M16 44 Q12 38 14 32 Q18 36 18 42 Z" fill="#06b6d4" opacity="0.6"/>
+            <path d="M64 44 Q68 38 66 32 Q62 36 62 42 Z" fill="#06b6d4" opacity="0.6"/>
+            <rect x="18" y="50" width="44" height="2.5" rx="1" fill="url(#g4)" opacity="0.5"/>
+          </svg>
+        </div>
+        <span class="mcard-name">State Dental<br>Council J&amp;K</span>
+      </div>
+
+      <!-- DARB -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <polygon points="40,6 60,18 60,42 40,54 20,42 20,18" fill="rgba(139,92,246,0.1)" stroke="url(#g5)" stroke-width="2.2"/>
+            <rect x="27" y="38" width="6" height="8" rx="1.5" fill="url(#g5)" opacity="0.5"/>
+            <rect x="35" y="32" width="6" height="14" rx="1.5" fill="url(#g5)" opacity="0.7"/>
+            <rect x="43" y="26" width="6" height="20" rx="1.5" fill="url(#g5)"/>
+            <polygon points="40,10 41.2,14 45,14 42,16.5 43.2,20.5 40,18 36.8,20.5 38,16.5 35,14 38.8,14" fill="#fbbf24"/>
+            <path d="M33 48 L35 55 L40 52 L45 55 L47 48" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="mcard-name">DARB<br>Certified</span>
+      </div>
+
+      <!-- IDA -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <circle cx="40" cy="30" r="22" fill="none" stroke="url(#g6)" stroke-width="2.2"/>
+            <circle cx="40" cy="30" r="16" fill="rgba(139,92,246,0.08)"/>
+            <path d="M33 26 Q32 21 36 20 Q38.5 20 40 22.5 Q41.5 20 44 20 Q48 21 47 26 L46 36 Q45 41 40 41 Q35 41 34 36 Z" fill="url(#g6)" opacity="0.85"/>
+            <line x1="37.5" y1="38" x2="36" y2="45" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="42.5" y1="38" x2="44" y2="45" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M22 18 A20 20 0 0 1 58 18" stroke="#fbbf24" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+            <circle cx="22" cy="18" r="2.5" fill="#fbbf24"/>
+            <circle cx="58" cy="18" r="2.5" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <span class="mcard-name">Indian Dental<br>Association</span>
+      </div>
+
+      <!-- DUPLICATE SET for seamless loop -->
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <path d="M40 4 L68 16 L68 36 C68 50 40 58 40 58 C40 58 12 50 12 36 L12 16 Z" fill="none" stroke="url(#g1b)" stroke-width="2.5"/>
+            <path d="M40 10 L62 20 L62 36 C62 47 40 54 40 54 C40 54 18 47 18 36 L18 20 Z" fill="rgba(139,92,246,0.12)"/>
+            <path d="M33 28 Q33 23 37 23 Q40 23 40 26 Q40 23 43 23 Q47 23 47 28 L46 38 Q45 42 40 42 Q35 42 34 38 Z" fill="url(#g1b)" opacity="0.9"/>
+            <line x1="38" y1="38" x2="37" y2="44" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="42" y1="38" x2="43" y2="44" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="29" y="18" font-size="6" fill="#fbbf24">★</text><text x="37" y="15" font-size="6" fill="#fbbf24">★</text><text x="45" y="18" font-size="6" fill="#fbbf24">★</text>
+          </svg>
+        </div>
+        <span class="mcard-name">Indian Board of<br>Endodontics</span>
+      </div>
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g2b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <circle cx="40" cy="30" r="24" fill="none" stroke="url(#g2b)" stroke-width="2"/>
+            <circle cx="40" cy="30" r="17" fill="rgba(139,92,246,0.1)"/>
+            <rect x="37" y="21" width="6" height="18" rx="2" fill="url(#g2b)"/>
+            <rect x="31" y="27" width="18" height="6" rx="2" fill="url(#g2b)"/>
+            <path d="M40 6 A24 24 0 0 1 64 30" stroke="#a78bfa" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <text x="21" y="14" font-size="6" fill="#fbbf24">★</text><text x="52" y="14" font-size="6" fill="#fbbf24">★</text>
+            <path d="M33 48 L37 52 L48 42" stroke="#06b6d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="mcard-name">NABH<br>Accredited</span>
+      </div>
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g3b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <rect x="36" y="44" width="8" height="6" rx="1" fill="url(#g3b)" opacity="0.8"/><rect x="34" y="40" width="12" height="5" rx="1" fill="url(#g3b)" opacity="0.7"/><rect x="38" y="16" width="4" height="25" rx="1" fill="url(#g3b)"/>
+            <ellipse cx="40" cy="16" rx="10" ry="4" fill="none" stroke="#06b6d4" stroke-width="2"/>
+            <circle cx="30" cy="13" r="4" fill="none" stroke="#fbbf24" stroke-width="1.5"/><circle cx="50" cy="13" r="4" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+            <circle cx="40" cy="9" r="5" fill="none" stroke="url(#g3b)" stroke-width="1.5"/><circle cx="40" cy="9" r="1.5" fill="#8b5cf6"/>
+            <line x1="40" y1="4" x2="40" y2="14" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/><line x1="35" y1="9" x2="45" y2="9" stroke="#8b5cf6" stroke-width="1" opacity="0.7"/>
+            <rect x="18" y="50" width="44" height="2" rx="1" fill="#fbbf24" opacity="0.6"/>
+          </svg>
+        </div>
+        <span class="mcard-name">Dental Council<br>of India</span>
+      </div>
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g4b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <path d="M20 38 Q22 28 28 24 Q32 20 36 18 Q42 15 48 17 Q55 19 58 25 Q60 30 57 36 Q54 42 48 44 Q44 48 40 50 Q36 48 32 44 Q24 42 20 38 Z" fill="rgba(139,92,246,0.15)" stroke="url(#g4b)" stroke-width="2"/>
+            <polygon points="40,20 41.5,25 46,25 42.5,28 44,33 40,30 36,33 37.5,28 34,25 38.5,25" fill="#fbbf24"/>
+            <path d="M16 44 Q12 38 14 32 Q18 36 18 42 Z" fill="#06b6d4" opacity="0.6"/><path d="M64 44 Q68 38 66 32 Q62 36 62 42 Z" fill="#06b6d4" opacity="0.6"/>
+            <rect x="18" y="50" width="44" height="2.5" rx="1" fill="url(#g4b)" opacity="0.5"/>
+          </svg>
+        </div>
+        <span class="mcard-name">State Dental<br>Council J&amp;K</span>
+      </div>
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g5b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <polygon points="40,6 60,18 60,42 40,54 20,42 20,18" fill="rgba(139,92,246,0.1)" stroke="url(#g5b)" stroke-width="2.2"/>
+            <rect x="27" y="38" width="6" height="8" rx="1.5" fill="url(#g5b)" opacity="0.5"/><rect x="35" y="32" width="6" height="14" rx="1.5" fill="url(#g5b)" opacity="0.7"/><rect x="43" y="26" width="6" height="20" rx="1.5" fill="url(#g5b)"/>
+            <polygon points="40,10 41.2,14 45,14 42,16.5 43.2,20.5 40,18 36.8,20.5 38,16.5 35,14 38.8,14" fill="#fbbf24"/>
+            <path d="M33 48 L35 55 L40 52 L45 55 L47 48" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="mcard-name">DARB<br>Certified</span>
+      </div>
+      <div class="marquee-card">
+        <div class="mcard-logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g6b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <circle cx="40" cy="30" r="22" fill="none" stroke="url(#g6b)" stroke-width="2.2"/><circle cx="40" cy="30" r="16" fill="rgba(139,92,246,0.08)"/>
+            <path d="M33 26 Q32 21 36 20 Q38.5 20 40 22.5 Q41.5 20 44 20 Q48 21 47 26 L46 36 Q45 41 40 41 Q35 41 34 36 Z" fill="url(#g6b)" opacity="0.85"/>
+            <line x1="37.5" y1="38" x2="36" y2="45" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/><line x1="42.5" y1="38" x2="44" y2="45" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M22 18 A20 20 0 0 1 58 18" stroke="#fbbf24" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+            <circle cx="22" cy="18" r="2.5" fill="#fbbf24"/><circle cx="58" cy="18" r="2.5" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <span class="mcard-name">Indian Dental<br>Association</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════ -->
+<section class="section about-section" id="about">
+  <div class="section-bg-glow glow-purple"></div>
+  <div class="container">
+    <div class="section-label reveal">About Us</div>
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="img-frame">
+          <img src="clinic-image.png" alt="Access Dental Care Clinic">
+          <div class="img-border-glow"></div>
+        </div>
+        <div class="float-badge float-badge-1">
+          <i class="fas fa-tooth"></i>
+          <div><strong>10+ Years</strong><span>of Excellence</span></div>
+        </div>
+        <div class="float-badge float-badge-2">
+          <i class="fas fa-star"></i>
+          <div><strong>5000+</strong><span>Happy Patients</span></div>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <h2 class="section-h2">Redefining <span class="grad-text">Dental Care</span><br>in Kashmir</h2>
+        <p>Access Dental Care &amp; Orthodontics offers a wide range of oral health services especially Orthodontic treatment. Other treatments including dental implants, root canal, crowns, tooth extraction, teeth whitening, and veneers are also provided.</p>
+        <p>Our doctors are professional with deep expertise. Customised treatment is given to kids with special care needs. Modern technology meets compassionate care at every visit.</p>
+        <p>Our clinic follows the highest standards of hygiene and sterilization, ensuring complete safety for every patient.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-gED_btapLIEsGG2r703JaFSzgeIhJhBLE5tgZHCZd8TIAA/viewform" target="_blank" class="btn-primary">
+          <span>Book Appointment</span><i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section class="section services-section" id="services">
+  <div class="section-bg-glow glow-cyan"></div>
+  <div class="container">
+    <div class="section-label reveal">What We Offer</div>
+    <h2 class="section-h2 text-center reveal">Our <span class="grad-text">Services</span></h2>
+    <div class="services-grid">
+      <div class="service-card reveal-up" style="--d:0ms">
+        <div class="sc-icon"><i class="fas fa-teeth"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Orthodontic Treatment</h3>
+        <p>Comprehensive braces and aligner treatments for all ages to achieve perfectly aligned teeth and a confident smile.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal-up" style="--d:80ms">
+        <div class="sc-icon"><i class="fas fa-tooth"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Dental Implants</h3>
+        <p>Permanent solution for missing teeth that look, feel, and function exactly like natural teeth.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal-up" style="--d:160ms">
+        <div class="sc-icon"><i class="fas fa-teeth-open"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Teeth Whitening</h3>
+        <p>Professional whitening services to brighten your smile dramatically and safely.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal-up" style="--d:240ms">
+        <div class="sc-icon"><i class="fas fa-syringe"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Root Canal Treatment</h3>
+        <p>Painless root canal procedures to save infected teeth and relieve discomfort effectively.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal-up" style="--d:320ms">
+        <div class="sc-icon"><i class="fas fa-crown"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Crowns &amp; Bridges</h3>
+        <p>Restore damaged teeth or replace missing ones with precision custom-made crowns and bridges.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal-up" style="--d:400ms">
+        <div class="sc-icon"><i class="fas fa-baby"></i></div>
+        <div class="sc-glow"></div>
+        <h3>Pediatric Dentistry</h3>
+        <p>Specialised gentle dental care for children in a friendly, comfortable, and stress-free environment.</p>
+        <div class="sc-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SPECIALISTS
+═══════════════════════════════════════ -->
+<section class="section specialists-section" id="specialists">
+  <div class="section-bg-glow glow-purple"></div>
+  <div class="container">
+    <div class="section-label reveal">Meet the Team</div>
+    <h2 class="section-h2 text-center reveal">Our <span class="grad-text">Specialists</span></h2>
+    <div class="specialists-grid">
+
+      <div class="specialist-card reveal-up" style="--d:0ms">
+        <div class="spec-img-wrap">
+          <img src="sameer-photo.png" alt="Dr. Sameer Malik">
+          <div class="spec-img-ring"></div>
+        </div>
+        <div class="spec-info">
+          <h3>Dr. Sameer Malik</h3>
+          <p class="spec-title">Orthodontist</p>
+          <ul class="spec-creds">
+            <li><i class="fas fa-check-circle"></i> Regn. no. A-2294 (2014)</li>
+            <li><i class="fas fa-check-circle"></i> BDS, HJ Endodontics — GDC Srinagar</li>
+            <li><i class="fas fa-check-circle"></i> MDS Orthodontics — RGUHS</li>
+            <li><i class="fas fa-check-circle"></i> MFDS RCS Edinburgh</li>
+            <li><i class="fas fa-check-circle"></i> Fellowship — Sick Kids Hospital, Toronto</li>
+            <li><i class="fas fa-check-circle"></i> Member, Indian Society of Oral Implantology</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="specialist-card reveal-up" style="--d:150ms">
+        <div class="spec-img-wrap">
+          <img src="nida-photo.png" alt="Dr. Nida Lanker">
+          <div class="spec-img-ring"></div>
+        </div>
+        <div class="spec-info">
+          <h3>Dr. Nida Lanker</h3>
+          <p class="spec-title">General Dentist</p>
+          <ul class="spec-creds">
+            <li><i class="fas fa-check-circle"></i> Regn. no. A-3341 (2017)</li>
+            <li><i class="fas fa-check-circle"></i> BDS — GDC Srinagar</li>
+            <li><i class="fas fa-check-circle"></i> House Job in Oral Surgery — GDC Srinagar</li>
+            <li><i class="fas fa-check-circle"></i> University Gold Medalist in BDS</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <p class="consult-note reveal"><i class="fas fa-calendar-check"></i> Consultations available Monday to Saturday</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-bg-glow glow-cyan"></div>
+  <div class="container">
+    <div class="section-label reveal">Patient Stories</div>
+    <h2 class="section-h2 text-center reveal">What Our <span class="grad-text">Patients Say</span></h2>
+    <div class="testi-slider reveal">
+      <div class="testi-slide active">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Doctor Sameer was exceptionally spot-on with the diagnosis and treatment planning. He treated me with less invasive procedures and the results were amazing. He communicates well and is very approachable. Highly recommend!</p>
+        <div class="testi-author"><strong>— Gazal</strong></div>
+      </div>
+      <div class="testi-slide">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">If you're looking for excellent dental care, this clinic is a fantastic choice! Dr. Nida is highly skilled, incredibly gentle, and especially great with kids. The rates are very reasonable. Highly recommended!</p>
+        <div class="testi-author"><strong>— M Faheem</strong></div>
+      </div>
+      <div class="testi-slide">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Dr Sameer is exceptionally good and a thorough professional. He does regular follow-ups with complete empathy. I had fear of dentists before but my perception has completely changed. Thank you for treating with utmost care!</p>
+        <div class="testi-author"><strong>— Navreen</strong></div>
+      </div>
+      <div class="testi-dots">
+        <button class="tdot active" data-t="0"></button>
+        <button class="tdot" data-t="1"></button>
+        <button class="tdot" data-t="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="section-bg-glow glow-purple"></div>
+  <div class="container">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-h2 text-center reveal">Book Your <span class="grad-text">Appointment</span></h2>
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info reveal-left">
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Address</h4><p>Anzimar, Khanyar, Srinagar, J&amp;K — 190003</p></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Phone / WhatsApp</h4><p>+91-7051111411</p></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><p>Shifaclinicc@gmail.com</p></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Working Hours</h4><p>Monday to Saturday: 9:00 AM – 7:00 PM</p></div>
+        </div>
+
+        <!-- Social -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/access_dentalcare" target="_blank" class="social-btn instagram" title="Instagram">
+            <i class="fab fa-instagram"></i><span>Instagram</span>
+          </a>
+          <a href="https://www.youtube.com/@Access_dentalcare" target="_blank" class="social-btn youtube" title="YouTube">
+            <i class="fab fa-youtube"></i><span>YouTube</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sameer-ahmad-malik-531411177/" target="_blank" class="social-btn linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap reveal-right">
+        <form id="appointmentForm" class="appt-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="you@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" class="form-control" required>
+              <option value="">Select a service</option>
+              <option value="orthodontic">Orthodontic Treatment</option>
+              <option value="implants">Dental Implants</option>
+              <option value="whitening">Teeth Whitening</option>
+              <option value="root-canal">Root Canal</option>
+              <option value="crowns">Crowns &amp; Bridges</option>
+              <option value="pediatric">Pediatric Dentistry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your dental concerns…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-w">
+            <span>Send Appointment Request</span><i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="fc brand-col">
+        <img src="logo-trans.png" alt="Access Dental" class="footer-logo">
+        <p>Providing quality dental care with modern technology and a compassionate approach. Your smile is our priority.</p>
+      </div>
+      <div class="fc">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#specialists">Our Specialists</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Orthodontic Treatment</a></li>
+          <li><a href="#services">Dental Implants</a></li>
+          <li><a href="#services">Teeth Whitening</a></li>
+          <li><a href="#services">Root Canal</a></li>
+          <li><a href="#services">Crowns &amp; Bridges</a></li>
+          <li><a href="#services">Pediatric Dentistry</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> Anzimar, Khanyar, Srinagar</li>
+          <li><i class="fas fa-phone"></i> +91-7051111411</li>
+          <li><i class="fas fa-envelope"></i> Shifaclinicc@gmail.com</li>
+          <li><i class="fas fa-clock"></i> Mon–Sat: 9AM – 7PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2025 Access Dental Care &amp; Orthodontics. All Rights Reserved.</p>
+      <p>Powered by <a href="https://www.neurigenx.com" target="_blank" class="neurigenx-link">Neurigenx</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     GROQ AI CHATBOT
+═══════════════════════════════════════ -->
+<div class="chatbot-wrap">
+  <button class="chat-toggle" id="chatToggle" aria-label="Open AI Chat">
+    <i class="fas fa-tooth chat-icon-tooth"></i>
+    <i class="fas fa-times chat-icon-close"></i>
+    <span class="chat-badge">AI</span>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <!-- Header -->
+    <div class="chat-head">
+      <div class="chat-head-av"><i class="fas fa-tooth"></i></div>
+      <div class="chat-head-info">
+        <strong>Dental AI Assistant</strong>
+        <span><em class="online-dot"></em>Online &amp; Ready</span>
+      </div>
+      <button class="chat-head-close" id="chatClose"><i class="fas fa-chevron-down"></i></button>
+    </div>
+
+    <!-- Chips -->
+    <div class="chat-chips">
+      <button class="chip" data-q="How do I book an appointment?">📅 Book Appt</button>
+      <button class="chip" data-q="What are your working hours?">🕐 Hours</button>
+      <button class="chip" data-q="Tell me about braces and orthodontics">🦷 Braces</button>
+      <button class="chip" data-q="What does professional teeth whitening involve?">✨ Whitening</button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="chat-bubble bot-bubble">
+        <div class="bav"><i class="fas fa-tooth"></i></div>
+        <div class="btxt">Hello! I'm your AI Dental Assistant. Ask me anything about treatments, appointments, or our specialists! 😊</div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about treatments or appointments…" autocomplete="off">
+      <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+    </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Access Dental Care & Orthodontics</h3>
-                    <p>Providing quality dental care with modern technology and a compassionate approach. Your smile is our priority.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#specialists">Our Specialists</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="#">Orthodontic Treatment</a></li>
-                        <li><a href="#">Dental Implants</a></li>
-                        <li><a href="#">Teeth Whitening</a></li>
-                        <li><a href="#">Root Canal Treatment</a></li>
-                        <li><a href="#">Crowns & Bridges</a></li>
-                        <li><a href="#">Pediatric Dentistry</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Anzimar, Khanyar, Srinagar</li>
-                        <li><i class="fas fa-phone"></i> +91-7051111411</li>
-                        <li><i class="fas fa-envelope"></i> Shifaclinicc@gmail.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Access Dental Care & Orthodontics. All Rights Reserved.</p>
-                <p>Powered By Neurigenx</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Chatbot -->
-    <div class="chatbot-container">
-        <div class="chatbot-toggle">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="chatbot-window">
-            <div class="chatbot-header">
-                <h3>Dental Assistant</h3>
-                <button class="chatbot-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chatbot-messages">
-                <div class="message bot-message">
-                    Hello! I'm your dental assistant. How can I help you with your dental concerns today?
-                </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" placeholder="Type your message here...">
-                <button><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
+    <div class="chat-foot">
+      <a href="https://www.neurigenx.com" target="_blank" class="chat-foot-link">
+        An AI Product of Neurivvy Intelligenx
+      </a>
     </div>
+  </div>
+</div>
 
-    <!-- JavaScript Files -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

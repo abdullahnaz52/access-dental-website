@@ -1249,7 +1249,7 @@ textarea.form-control{resize:vertical;min-height:110px}
 @media(max-width:400px){
   .logo-img{height:30px}
   .logo-top{font-size:0.68rem}
-  .logo-bot{display:none}
+  .logo-bot{display:block}
   .hero-h1{font-size:1.75rem}
   .hero-stats{flex-direction:column;align-items:center}
   .btn-primary,.btn-ghost{padding:12px 22px;font-size:0.88rem}

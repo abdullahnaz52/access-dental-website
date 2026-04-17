@@ -904,7 +904,7 @@ async function loadPosts() {
   // 2. Try to load auto-fetched RSS posts from blog-posts.json (server-generated)
   let rssPosts = [];
   try {
-    const res = await fetch('/blog-posts.json');
+    const res = await fetch('./blog-posts.json');
     if (res.ok) {
       rssPosts = await res.json();
       // Only keep auto-fetched (non-manual) ones to avoid duplicates
@@ -1088,14 +1088,14 @@ function openPost(id) {
   document.body.style.overflow = 'hidden';
   // Update page title and meta for SEO
   document.title = `${post.title} | Access Dental Care Blog`;
-  history.pushState({post:id}, '', `/blogs/${post.id}`);
+  history.replaceState({post:id}, '', `#post-${post.id}`);
 }
 
 function closeModal() {
   document.getElementById('postModal').classList.remove('open');
   document.body.style.overflow = '';
   document.title = 'Dental Health Blog | Access Dental Care & Orthodontics Srinagar';
-  history.pushState({}, '', '/blogs');
+  history.replaceState({}, '', window.location.pathname);
 }
 
 // ═══ Admin ═══

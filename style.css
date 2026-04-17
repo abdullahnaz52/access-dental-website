@@ -713,10 +713,11 @@ h1,h2,h3,h4,h5{
   box-shadow:0 0 20px rgba(139,92,246,0.3);
   border-color:rgba(139,92,246,0.5);
 }
-.ci-icon i{
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.ci-item h4{font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
+.ci-icon i,
+.ci-icon svg{
+  width:20px;height:20px;flex-shrink:0;
+  color:var(--purple2);stroke:var(--purple2);
+}.ci-item h4{font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:4px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
 .ci-item p{font-size:0.9rem;color:var(--grey)}
 
 /* Social buttons — brand colors */
@@ -727,7 +728,7 @@ h1,h2,h3,h4,h5{
   font-size:0.82rem;font-weight:600;color:#fff;
   transition:var(--trans);border:1px solid transparent;
 }
-.social-btn i{font-size:1.1rem}
+.social-btn i,.social-btn svg{font-size:1.1rem;flex-shrink:0}
 .social-btn:hover{transform:translateY(-3px);filter:brightness(1.15)}
 
 .instagram{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
@@ -945,10 +946,10 @@ textarea.form-control{resize:vertical;min-height:110px}
   font-size:0.52rem;font-weight:800;
   padding:2px 6px;border-radius:8px;letter-spacing:0.3px;
 }
-.chat-icon-tooth{color:#fff;font-size:1.4rem;transition:var(--trans)}
-.chat-icon-close{color:#fff;font-size:1.2rem;display:none;transition:var(--trans)}
+.chat-icon-tooth{color:#fff;stroke:#fff;transition:var(--trans);display:flex}
+.chat-icon-close{color:#fff;stroke:#fff;display:none;transition:var(--trans)}
 .chat-toggle.open .chat-icon-tooth{display:none}
-.chat-toggle.open .chat-icon-close{display:block}
+.chat-toggle.open .chat-icon-close{display:flex}
 @keyframes chatPulse{
   0%,100%{box-shadow:0 8px 32px rgba(139,92,246,0.5),0 0 0 0 rgba(139,92,246,0.4)}
   50%{box-shadow:0 8px 32px rgba(139,92,246,0.5),0 0 0 12px rgba(139,92,246,0)}
@@ -1408,3 +1409,27 @@ textarea.form-control{resize:vertical;min-height:110px}
     max-height: 180px;
   }
 }
+
+/* ── Footer SVG contact icons ─────────────────────── */
+.footer-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;width:16px;height:16px;margin-top:2px;
+}
+.footer-icon svg{width:14px;height:14px;stroke:var(--purple2);color:var(--purple2)}
+.contact-list li{display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.contact-list li a{color:var(--grey2);transition:var(--trans)}
+.contact-list li a:hover{color:#fff}
+
+/* ── Footer social icons ──────────────────────────── */
+.footer-social{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.fsoc-btn{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:var(--trans);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.fsoc-btn svg{width:18px;height:18px;fill:currentColor}
+.fsoc-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);border-color:transparent}
+.fsoc-btn.instagram{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.fsoc-btn.youtube{background:#ff0000}
+.fsoc-btn.linkedin{background:#0077b5}

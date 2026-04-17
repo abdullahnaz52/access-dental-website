@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://accessdentalcare.in/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://accessdentalcare.in/logo.png</image:loc>
+      <image:title>Access Dental Care &amp; Orthodontics Logo</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://accessdentalcare.in/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://accessdentalcare.in/sameer-photo.png</image:loc>
+      <image:title>Dr. Sameer Malik - MDS Orthodontist Srinagar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://accessdentalcare.in/nida-photo.png</image:loc>
+      <image:title>Dr. Nida Lanker - BDS Dental Surgeon Srinagar</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://accessdentalcare.in/services</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://accessdentalcare.in/blogs</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://accessdentalcare.in/contact</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://accessdentalcare.in/privacy-policy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
